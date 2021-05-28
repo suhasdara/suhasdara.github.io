@@ -2,31 +2,24 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout";
-
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
+import SEO from "../components/seo";
+import { Heading404, Paragraph404 } from "../styles/pages/404.styles";
 
 const NotFoundPage = () => {
   return (
-    <Layout>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
+    <Layout hideFooter={true}>
+      <SEO title="404: Not found" />
+      <Heading404>Page not found</Heading404>
+      <Paragraph404>
         Sorry{" "}
         <span role="img" aria-label="Pensive emoji">
           😔
         </span>{" "}
-        we couldn’t find what you were looking for.
+        I don’t have what you were looking for.
+        Do you know something I don't?
         <br />
         <Link to="/">Go home</Link>.
-      </p>
+      </Paragraph404>
     </Layout>
   );
 };

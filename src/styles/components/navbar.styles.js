@@ -20,7 +20,7 @@ export const Bar = styled.header`
       margin: 10px;
     }
   }
-  #logo {
+  #logo-text {
     font-size: 32px;
     font-family: cursive;
   }
@@ -47,8 +47,10 @@ export const MobileBar = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    #logo {
+    #logo, #logo-text {
       display: block;
+    }
+    #logo {
       margin-left: 40px;
     }
     #bars {

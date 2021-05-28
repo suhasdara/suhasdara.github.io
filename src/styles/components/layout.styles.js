@@ -9,6 +9,8 @@ export const Main = styled.main`
 export const Footer = styled.footer`
   margin-top: 2rem;
   text-align: center;
+  background: antiquewhite;
+  color: black;
 `;
 
 export const GlobalStyle = createGlobalStyle`
