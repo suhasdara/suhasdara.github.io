@@ -20,7 +20,8 @@ export const experienceQuery = graphql`
       html
       frontmatter {
         title
-        date
+        startDate
+        endDate
         tags
         languages
         tools

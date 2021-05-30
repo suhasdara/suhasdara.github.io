@@ -13,7 +13,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             frontmatter {
               slug
-              posttype
+              postType
             }
           }
         }
@@ -24,12 +24,12 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(res.errors);
     }
     res.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if(node.frontmatter.posttype === "project") {
+      if(node.frontmatter.postType === "project") {
         createPage({
           path: node.frontmatter.slug,
           component: projectTemplate,
         });
-      } else if(node.frontmatter.posttype === "experience") {
+      } else if(node.frontmatter.postType === "experience") {
         createPage({
           path: node.frontmatter.slug,
           component: experienceTemplate,
