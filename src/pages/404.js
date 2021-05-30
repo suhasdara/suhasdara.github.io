@@ -3,14 +3,15 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { Heading404, Paragraph404 } from "../styles/pages/404.styles";
 
 const NotFoundPage = () => {
   return (
     <Layout hideFooter={true}>
       <SEO title="404: Not found" />
-      <Heading404>Page not found</Heading404>
-      <Paragraph404>
+      <h1 className="my-5" style={{maxWidth: 320}}>
+        Page not found
+      </h1>
+      <p className="mb-5">
         Sorry{" "}
         <span role="img" aria-label="Pensive emoji">
           😔
@@ -18,8 +19,8 @@ const NotFoundPage = () => {
         I don’t have what you were looking for.
         Do you know something I don't?
         <br />
-        <Link to="/">Go home</Link>.
-      </Paragraph404>
+        <Link to="/">Try again?</Link>
+      </p>
     </Layout>
   );
 };

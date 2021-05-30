@@ -3,25 +3,26 @@ import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-import { Footer, GlobalStyle, Main } from "../styles/components/layout.styles";
-import Navbar from "./navbar";
+import { GlobalStyle } from "../styles/components/layout.styles";
+import "../styles/components/layout.css"
+import Header from "./header";
 
 function Layout({ children, hideFooter }) {
   return (
     <>
       <GlobalStyle />
-      <Navbar/>
-      <Main>
+      <Header/>
+      <main className="mx-auto">
         {children}
-      </Main>
+      </main>
       {!hideFooter && (
-        <Footer>
+        <footer className="mt-2 text-center bg-light text-dark">
           Suhas Dara&emsp;|&emsp;
-          <FontAwesomeIcon icon={faGithub}/>&ensp;
+          <FontAwesomeIcon icon={faGithub} />&ensp;
           <a href="https://www.github.com/suhasdara">Github</a>&emsp;|&emsp;
-          <FontAwesomeIcon icon={faLinkedin}/>&ensp;
+          <FontAwesomeIcon icon={faLinkedin} />&ensp;
           <a href="https://www.linkedin.com/in/suhas-dara">LinkedIn</a>
-        </Footer>
+        </footer>
       )}
     </>
   );
