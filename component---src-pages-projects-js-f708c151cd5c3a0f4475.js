@@ -1,0 +1,2 @@
+(self.webpackChunkthe_suhas_space=self.webpackChunkthe_suhas_space||[]).push([[853],{7744:function(e,t,s){"use strict";s.r(t);var u=s(7294),a=s(4976),c=s(3751);t.default=function(){return u.createElement(a.Z,null,u.createElement(c.Z,{title:"Projects"}))}}}]);
+//# sourceMappingURL=component---src-pages-projects-js-f708c151cd5c3a0f4475.js.map
