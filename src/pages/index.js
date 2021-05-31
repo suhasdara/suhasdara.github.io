@@ -82,10 +82,10 @@ const IndexPage = () => {
           <Row>
             <p className="mt-2 text-light">
               Hi there! I recently graduated from The University of Texas at Austin
-              with a BS in Computer Science. I decided to put my few skills in web
-              development to the test by creating this website and advertising
-              myself. I am striving to find what interests me best in Computer
-              Science, but as it stands, it is data science and machine learning.
+              with a BS in Computer Science. I decided to put my skills in web
+              development to the test by creating this website. I am striving to
+              find what interests me best in Computer Science: it is data science,
+              machine learning, and deep learning, as it stands.
               <Link to="/about"> Want to know more?</Link>
             </p>
           </Row>

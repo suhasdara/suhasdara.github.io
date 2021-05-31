@@ -1,0 +1,8 @@
+.modal-image img {
+  cursor: pointer;
+}
+
+/* needed to combat bootstrap modal bug */
+body {
+  padding-right: 0 !important
+}
