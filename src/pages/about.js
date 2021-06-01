@@ -12,17 +12,18 @@ import Piano from "../../content/images/about/piano.png";
 import Hiking from "../../content/images/about/hiking.jpg";
 
 const MediaRow = ({ media, mediaAlt, mediaHeight, rowNum, children }) => {
-  const flexDir = rowNum % 2 === 0 ? "flex-sm-row" : "flex-sm-row-reverse";
-  const justifyDir = rowNum % 2 === 0 ? "justify-content-sm-end" : "justify-content-sm-start";
+  const flexDir = rowNum % 2 === 0 ? "flex-md-row" : "flex-md-row-reverse";
+  const justifyDir = rowNum % 2 === 0 ? "justify-content-md-end" : "justify-content-md-start";
 
   return (
     <Row className={`d-flex ${flexDir} align-items-center`}>
-      <Col xs="12" sm="8" md="9" className="px-0 px-sm-2">
-        <p className="text-light my-2 my-sm-0">
+      <Col xs="12" md="3" lg="2" />
+      <Col xs="12" md="6" lg="8" className="px-0 px-md-2">
+        <p className="text-light my-2 my-md-0">
           {children}
         </p>
       </Col>
-      <Col xs="12" sm="4" md="3" className={`d-flex ${justifyDir} justify-content-center p-0`}>
+      <Col xs="12" md="3" lg="2" className={`d-flex ${justifyDir} justify-content-center p-0`}>
         <ModalImage src={media} alt={mediaAlt} title={mediaAlt} height={mediaHeight} />
       </Col>
     </Row>

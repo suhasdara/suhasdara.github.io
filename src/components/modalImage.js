@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import PropTypes from "prop-types";
 
@@ -14,7 +14,7 @@ function ModalImage({ src, alt, title, height }) {
       </div>
       <Modal centered show={show} onHide={() => setShow(!show)}>
         {title && (
-          <Modal.Header>
+          <Modal.Header className="bg-light d-flex align-items-center" closeButton>
             <h4 className="bg-light text-dark mb-0">
               {title}
             </h4>

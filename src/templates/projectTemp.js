@@ -20,8 +20,8 @@ export const projectQuery = graphql`
       html
       frontmatter {
         title
-        startDate
-        endDate
+        startDates
+        endDates
         tags
         languages
         tools

@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
 import { GlobalStyle } from "../styles/components/layout.styles";
 import "../styles/components/layout.css"
