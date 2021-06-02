@@ -25,7 +25,7 @@ export default function ProjectTemplate({ data }) {
         </h4>
         {project.frontmatter.languages && (
           <div className="mb-1">
-            <p className="d-flex align-items-center mb-0">
+            <p className="d-flex flex-wrap align-items-center mb-0">
               Languages used:&nbsp;
               {project.frontmatter.languages.map((l, i) => (
                 <span key={i}>
@@ -38,7 +38,7 @@ export default function ProjectTemplate({ data }) {
         )}
         {project.frontmatter.tools && (
           <div className="mb-1">
-            <p className="d-flex align-items-center mb-0">
+            <p className="d-flex flex-wrap align-items-center mb-0">
               Tools used:&nbsp;
               {project.frontmatter.tools.map((t, i) => (
                 <span key={i}>

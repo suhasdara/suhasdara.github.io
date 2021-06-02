@@ -43,7 +43,7 @@ export default function ExperienceTemplate({ data }) {
         </div>
         {experience.frontmatter.languages && (
           <div className="mb-1">
-            <p className="d-flex align-items-center mb-0">
+            <p className="d-flex flex-wrap align-items-center mb-0">
               Languages used:&nbsp;
               {experience.frontmatter.languages.map((l, i) => (
                 <span key={i}>
@@ -56,7 +56,7 @@ export default function ExperienceTemplate({ data }) {
         )}
         {experience.frontmatter.tools && (
           <div className="mb-1">
-            <p className="d-flex align-items-center mb-0">
+            <p className="d-flex flex-wrap align-items-center mb-0">
               Tools used:&nbsp;
               {experience.frontmatter.tools.map((t, i) => (
                 <span key={i}>
