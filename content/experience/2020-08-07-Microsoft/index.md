@@ -1,12 +1,11 @@
 ---
 title: Microsoft internship
 company: Microsoft
+companyLink: https://www.microsoft.com/
 startDates:
     - 2020-05-18
 endDates:
     - 2020-08-07
-tags:
-    - Internship
 languages:
     - C#
 tools:
