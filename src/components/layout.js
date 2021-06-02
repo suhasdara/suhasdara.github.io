@@ -6,11 +6,11 @@ import "../styles/components/layout.css"
 import Header from "./header";
 import Footer from "./footer";
 
-function Layout({ children, hideFooter }) {
+function Layout({ children, active, hideFooter }) {
   return (
     <>
       <GlobalStyle />
-      <Header />
+      <Header active={active} />
       <main className="mx-auto">
         {children}
       </main>
@@ -22,12 +22,14 @@ function Layout({ children, hideFooter }) {
 }
 
 Layout.defaultProps = {
+  active: undefined,
   hideFooter: false
 };
 
 Layout.propTypes = {
-  hideFooter: PropTypes.bool,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  active: PropTypes.string,
+  hideFooter: PropTypes.bool
 };
 
 export default Layout;

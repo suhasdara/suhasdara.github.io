@@ -6,13 +6,10 @@ const getDate = (dateStr) => {
 };
 
 const DateRange = ({ startDates, endDates }) => {
-  console.log(startDates);
-  console.log(endDates);
-
   return (
     <>
       {startDates.map((s, i) => (
-        <>
+        <span key={i}>
           <span className="d-inline-block">
             {getDate(s)}
           </span>
@@ -24,7 +21,7 @@ const DateRange = ({ startDates, endDates }) => {
             {(i !== startDates.length - 1) && ","}
             &nbsp;
           </span>
-        </>
+        </span>
       ))}
 
     </>

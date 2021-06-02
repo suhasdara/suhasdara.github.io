@@ -45,11 +45,11 @@ export default function ExperienceTemplate({ data }) {
           <div className="mb-1">
             <p className="d-flex align-items-center mb-0">
               Languages used:&nbsp;
-              {experience.frontmatter.languages.map((l) => (
-                <>
+              {experience.frontmatter.languages.map((l, i) => (
+                <span key={i}>
                   <Badge pill variant="light">{l}</Badge>
                   &nbsp;
-                </>
+                </span>
               ))}
             </p>
           </div>
@@ -58,11 +58,11 @@ export default function ExperienceTemplate({ data }) {
           <div className="mb-1">
             <p className="d-flex align-items-center mb-0">
               Tools used:&nbsp;
-              {experience.frontmatter.tools.map((t) => (
-                <>
+              {experience.frontmatter.tools.map((t, i) => (
+                <span key={i}>
                   <Badge pill variant="light">{t}</Badge>
                   &nbsp;
-                </>
+                </span>
               ))}
             </p>
           </div>

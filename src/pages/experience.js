@@ -10,7 +10,7 @@ export default function ExperiencePage({ data }) {
   const experiences = data.allMarkdownRemark.edges;
 
   return (
-    <Layout>
+    <Layout active="experience">
       <SEO title="Experience" />
       <div className="pt-5">
         <h1 className="text-center text-light">Experience</h1>

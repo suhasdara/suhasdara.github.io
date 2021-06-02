@@ -10,7 +10,7 @@ export default function ProjectsPage({ data }) {
   const projects = data.allMarkdownRemark.edges;
 
   return (
-    <Layout>
+    <Layout active="projects">
       <SEO title="Projects" />
       <div className="pt-5">
         <h1 className="text-center text-light">Projects</h1>

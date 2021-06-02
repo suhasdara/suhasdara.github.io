@@ -32,8 +32,9 @@ const MediaRow = ({ media, mediaAlt, mediaHeight, rowNum, children }) => {
 
 const AboutPage = () => {
   return (
-    <Layout>
+    <Layout active="about">
       <SEO title="About Me" />
+      <h1 className="text-center text-light pt-5">About Me</h1>
       <Container>
         <Row>
           <p className="mt-3 text-light">

@@ -31,7 +31,7 @@ ModalImage.defaultProps = {
 }
 
 ModalImage.propTypes = {
-  src: PropTypes.object.isRequired,
+  src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.string,
   height: PropTypes.number.isRequired

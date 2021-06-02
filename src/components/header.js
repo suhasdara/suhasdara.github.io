@@ -6,7 +6,7 @@ import "../styles/components/header.css";
 
 import Icon from "../../content/images/icon.png";
 
-const Header = () => {
+const Header = ({ active }) => {
   return (
     <Navbar
       expand="md"
@@ -24,19 +24,19 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarResponsive" />
       <Navbar.Collapse id="navbarResponsive" className="bg-light">
-        <Nav>
+        <Nav activeKey={active}>
           <Nav.Item className="py-1 px-3 px-md-1">
-            <Nav.Link as={Link} to="/about">
+            <Nav.Link eventKey="about" as={Link} to="/about">
               About
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className="py-1 px-3 px-md-1">
-            <Nav.Link as={Link} to="/projects">
+            <Nav.Link eventKey="projects" as={Link} to="/projects">
               Projects
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className="py-1 px-3 px-md-1">
-            <Nav.Link as={Link} to="/experience">
+            <Nav.Link eventKey="experience" as={Link} to="/experience">
               Experience
             </Nav.Link>
           </Nav.Item>
