@@ -10,7 +10,7 @@ function ProjectCard({ title, imgSrc, startDates, endDates, link }) {
   return (
     <Card className="bg-light text-center mb-3">
       <Card.Img src={imgSrc} variant="top" />
-      <Card.Body>
+      <Card.Body className="d-flex flex-column justify-content-center">
         <Card.Title className="text-dark">
           {title}
         </Card.Title>

@@ -1,11 +1,10 @@
 import React from "react"
+import { Badge } from "react-bootstrap";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import DateRange from "../components/dateRange";
-import {Badge} from "react-bootstrap";
-import ModalImage from "../components/modalImage";
 
 export default function ExperienceTemplate({ data }) {
   const experience = data.markdownRemark;

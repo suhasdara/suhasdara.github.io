@@ -49,18 +49,43 @@ export default function ProjectTemplate({ data }) {
             </p>
           </div>
         )}
-        <div className="mb-2">
-          <p className="mb-0">
-            <a
-              href={project.frontmatter.repository}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Link to Repository
-            </a>
-          </p>
-        </div>
-        <div className="mb-1 text-center">
+        {project.frontmatter.repository && (
+          <div className="mb-1">
+            <p className="mb-0">
+              <a
+                href={project.frontmatter.repository}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Link to Repository
+              </a>
+            </p>
+          </div>
+        )}
+        {project.frontmatter.paperSlug && (
+          <div className="mb-1">
+            <p className="mb-0">
+              <a
+                href={project.frontmatter.paperSlug}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Read the Research Paper
+              </a>
+              &nbsp;(unpublished)
+            </p>
+          </div>
+        )}
+        {project.frontmatter.projectLink && (
+          <div className="mb-1">
+            <p className="mb-0">
+              <a href={project.frontmatter.projectLink}>
+                View Live Website
+              </a>
+            </p>
+          </div>
+        )}
+        <div className="my-1 text-center">
           <ModalImage
             src={project.frontmatter.image.childImageSharp.fluid.src}
             alt={project.frontmatter.title}
@@ -88,9 +113,11 @@ export const projectQuery = graphql`
         tools
         slug
         repository
+        paperSlug
+        projectLink
         image {
           childImageSharp {
-            fluid(maxWidth: 300) {
+            fluid(maxWidth: 1300) {
               ...GatsbyImageSharpFluid
             }
           }

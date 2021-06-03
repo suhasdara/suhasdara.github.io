@@ -9,10 +9,10 @@ function ModalImage({ src, alt, title, height }) {
 
   return (
     <>
-      <div onClick={() => setShow(!show)} className="modal-image">
-        <img src={src} alt={alt} title={title} height={height} />
+      <div onClick={() => setShow(!show)} className="d-flex justify-content-center click-image">
+        <img src={src} alt={alt} title={title} style={{height: "auto", maxHeight: height}} />
       </div>
-      <Modal centered show={show} onHide={() => setShow(!show)}>
+      <Modal centered show={show} onHide={() => setShow(!show)} dialogClassName="modal-image">
         {title && (
           <Modal.Header className="bg-light d-flex align-items-center" closeButton>
             <h4 className="bg-light text-dark mb-0">
@@ -20,7 +20,7 @@ function ModalImage({ src, alt, title, height }) {
             </h4>
           </Modal.Header>
         )}
-        <img src={src} alt={alt} height="50%" />
+        <img src={src} alt={alt} />
       </Modal>
     </>
   );

@@ -7,12 +7,10 @@ startDates:
     - 2018-08-29
 endDates:
     - 2019-12-13
-    - 2018-08-07
+    - 2018-12-07
 languages:
     - Java
 slug: /experience/utcs
 postType: experience
 image: featured.png
 ---
-
-TEST

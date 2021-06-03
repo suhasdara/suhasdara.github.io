@@ -1,5 +1,5 @@
 ---
-title: Microsoft internship
+title: Microsoft Internship
 company: Microsoft
 companyLink: https://www.microsoft.com/
 startDates:
@@ -14,5 +14,3 @@ slug: /experience/microsoft
 postType: experience
 image: featured.png
 ---
-
-TEST

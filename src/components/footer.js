@@ -22,7 +22,7 @@ const Footer = () => {
       <hr className="mx-3 my-0" />
       <Row className="d-flex justify-content-center mx-1 my-0">
         <span className="d-inline-block px-1">
-          © Suhas Dara 2021,
+          © Suhas Dara {new Date().getFullYear()},
         </span>
         <span className="d-inline-block px-1">
           Built with <a href="https://www.gatsbyjs.com">Gatsby</a>
