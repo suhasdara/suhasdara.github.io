@@ -11,12 +11,10 @@ function Layout({ children, active, hideFooter }) {
     <>
       <GlobalStyle />
       <Header active={active} />
-      <main className="mx-auto">
+      <main className="d-flex flex-column flex-fill px-3 mb-3 mx-auto">
         {children}
       </main>
-      {!hideFooter && (
-        <Footer />
-      )}
+      <Footer hideFooter={hideFooter} />
     </>
   );
 }

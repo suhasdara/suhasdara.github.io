@@ -8,19 +8,21 @@ const NotFoundPage = () => {
   return (
     <Layout hideFooter={true}>
       <SEO title="404: Not found" />
-      <h1 className="my-5" style={{maxWidth: 320}}>
-        Page not found
-      </h1>
-      <p className="mb-5">
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        I don’t have what you were looking for.
-        Do you know something I don't?
-        <br />
-        <Link to="/">Try again?</Link>
-      </p>
+      <div className="pt-2 my-auto">
+        <h1 className="mb-5 text-center">
+          Page not found
+        </h1>
+        <h3 className="text-center">
+          Sorry{" "}
+          <span role="img" aria-label="Pensive emoji">
+            😔
+          </span>{" "}
+          I don’t have what you were looking for.
+          Do you know something I don't?
+          <br />
+          <Link to="/">Try again?</Link>
+        </h3>
+      </div>
     </Layout>
   );
 };

@@ -18,6 +18,7 @@ tools:
 slug: /projects/travel-scares-me
 repository: https://gitlab.com/suhasdara/travel-scares-me
 projectLink: https://travelscares.me/
+demoLink: https://www.youtube.com/watch?v=fWFjnH2Fas4
 postType: project
 image: featured.png
 ---

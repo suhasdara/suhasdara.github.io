@@ -17,7 +17,7 @@ export default function ProjectTemplate({ data }) {
         <h1 className="text-light mb-3">
           {project.frontmatter.title}
         </h1>
-        <h4 className="text-muted small mb-3">
+        <h4 className="text-muted mb-3">
           <DateRange
             startDates={project.frontmatter.startDates}
             endDates={project.frontmatter.endDates}
@@ -85,6 +85,19 @@ export default function ProjectTemplate({ data }) {
             </p>
           </div>
         )}
+        {project.frontmatter.demoLink && (
+          <div className="mb-1">
+            <p className="mb-0">
+              <a
+                href={project.frontmatter.demoLink}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                View Demo
+              </a>
+            </p>
+          </div>
+        )}
         <div className="my-1 text-center">
           <ModalImage
             src={project.frontmatter.image.childImageSharp.fluid.src}
@@ -115,6 +128,7 @@ export const projectQuery = graphql`
         repository
         paperSlug
         projectLink
+        demoLink
         image {
           childImageSharp {
             fluid(maxWidth: 1300) {

@@ -18,9 +18,9 @@ function ExperienceRow({ title, company, imgSrc, startDates, endDates, link }) {
         <Link to={link}>
           <h3 className="text-light mb-2">{title}</h3>
         </Link>
-        <h5 className="text-muted">
+        <h4 className="text-muted">
           <DateRange startDates={startDates} endDates={endDates} />
-        </h5>
+        </h4>
       </Col>
     </Row>
   );

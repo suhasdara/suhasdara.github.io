@@ -16,7 +16,7 @@ export default function ExperienceTemplate({ data }) {
         <h1 className="text-light mb-3">
           {experience.frontmatter.title}
         </h1>
-        <h4 className="text-muted small mb-3">
+        <h4 className="text-muted mb-3">
           <DateRange
             startDates={experience.frontmatter.startDates}
             endDates={experience.frontmatter.endDates}
@@ -34,7 +34,7 @@ export default function ExperienceTemplate({ data }) {
               <img
                 src={experience.frontmatter.image.childImageSharp.fluid.src}
                 alt={experience.frontmatter.title}
-                height={20}
+                height={16}
               />&nbsp;
               {experience.frontmatter.company}
             </a>

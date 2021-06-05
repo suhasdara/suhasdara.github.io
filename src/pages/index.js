@@ -31,7 +31,7 @@ const IndexPage = () => {
   return (
     <Layout hideFooter={true}>
       <SEO title="Home" />
-      <Container className="mt-2">
+      <Container className="pt-2 my-auto">
         <Row>
           <Col lg="6" className="d-inline-flex justify-content-center">
             <img id="brand-img" src={Logo} width={500} alt="The Suhas Space Logo"/>
@@ -44,7 +44,7 @@ const IndexPage = () => {
             </Row>
             <Row>
               <Col xs="12" className="d-inline-flex justify-content-center">
-                <h2 className="mb-0">Suhas Dara</h2>
+                <h2 className="mb-0 mt-2">Suhas Dara</h2>
               </Col>
             </Row>
             <Row>

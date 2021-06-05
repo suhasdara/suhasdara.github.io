@@ -19,8 +19,12 @@ const DateRange = ({ startDates, endDates }) => {
           <span className="d-inline-block">
             {endDates[i] === "2099-12-31T00:00:00.000Z" ? "Current" : getDate(endDates[i])}
             {(i !== startDates.length - 1) && ","}
-            &nbsp;
           </span>
+          {(i !== startDates.length - 1) && (
+            <span className="d-inline-block">
+              &nbsp;and&nbsp;
+            </span>
+          )}
         </span>
       ))}
 

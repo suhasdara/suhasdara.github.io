@@ -11,6 +11,7 @@ tools:
     - Darknet
 slug: /projects/object-detection
 paperSlug: /object_detection_paper.pdf
+demoLink: https://www.youtube.com/watch?v=5wDm65vpaTc
 postType: project
 image: featured.png
 ---
