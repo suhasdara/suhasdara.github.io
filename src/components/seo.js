@@ -1,7 +1,7 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
+import React from "react";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
+import PropTypes from "prop-types";
 
 function SEO({ description, meta, title }) {
   const { site } = useStaticQuery(
@@ -16,10 +16,10 @@ function SEO({ description, meta, title }) {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata.title
+  const metaDescription = description || site.siteMetadata.description;
+  const defaultTitle = site.siteMetadata.title;
 
   return (
     <Helmet
@@ -60,7 +60,7 @@ function SEO({ description, meta, title }) {
         },
       ].concat(meta)}
     />
-  )
+  );
 }
 
 SEO.defaultProps = {

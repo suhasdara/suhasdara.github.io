@@ -13,6 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "format": "npx prettier --write .",
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {

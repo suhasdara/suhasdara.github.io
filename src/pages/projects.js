@@ -29,13 +29,13 @@ export default function ProjectsPage({ data }) {
       </div>
     </Layout>
   );
-};
+}
 
 export const projectsQuery = graphql`
   query ProjectsIndexQuery {
     allMarkdownRemark(
-      sort: {order: DESC, fields: frontmatter___endDates}
-      filter: {frontmatter: {postType: {eq: "project"}}}
+      sort: { order: DESC, fields: frontmatter___endDates }
+      filter: { frontmatter: { postType: { eq: "project" } } }
     ) {
       edges {
         node {

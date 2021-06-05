@@ -11,16 +11,21 @@ function ExperienceRow({ title, company, imgSrc, startDates, endDates, link }) {
     <Row className="py-2">
       <Col className="first-col">
         <Link to={link}>
-          <img src={imgSrc} alt={company + " logo"} title={company + " logo"} height={100} />
+          <img
+            src={imgSrc}
+            alt={company + " logo"}
+            title={company + " logo"}
+            height={100}
+          />
         </Link>
       </Col>
       <Col className="second-col d-flex flex-column justify-content-center px-0">
         <Link to={link}>
           <h3 className="text-light mb-2">{title}</h3>
         </Link>
-        <h4 className="text-muted">
+        <h5 className="text-muted">
           <DateRange startDates={startDates} endDates={endDates} />
-        </h4>
+        </h5>
       </Col>
     </Row>
   );
@@ -31,7 +36,7 @@ ExperienceRow.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   startDates: PropTypes.arrayOf(PropTypes.string).isRequired,
   endDates: PropTypes.arrayOf(PropTypes.string).isRequired,
-  link: PropTypes.string.isRequired
-}
+  link: PropTypes.string.isRequired,
+};
 
 export default ExperienceRow;

@@ -1,13 +1,13 @@
 ---
 title: Analyze Life-cycle for MAC Addresses in Logs
 startDates:
-    - 2017-12-25
+  - 2017-12-25
 endDates:
-    - 2018-01-08
+  - 2018-01-08
 languages:
-    - Java
+  - Java
 tools:
-    - JavaPlot
+  - JavaPlot
 slug: /projects/analyze-macs
 repository: https://github.com/suhasdara/filter_macs
 postType: project

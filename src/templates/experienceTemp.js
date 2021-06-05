@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Badge } from "react-bootstrap";
 import { graphql } from "gatsby";
 
@@ -13,9 +13,7 @@ export default function ExperienceTemplate({ data }) {
     <Layout>
       <SEO title={experience.frontmatter.title} />
       <div className="pt-5">
-        <h1 className="text-light mb-3">
-          {experience.frontmatter.title}
-        </h1>
+        <h1 className="text-light mb-3">{experience.frontmatter.title}</h1>
         <h4 className="text-muted mb-3">
           <DateRange
             startDates={experience.frontmatter.startDates}
@@ -35,7 +33,8 @@ export default function ExperienceTemplate({ data }) {
                 src={experience.frontmatter.image.childImageSharp.fluid.src}
                 alt={experience.frontmatter.title}
                 height={16}
-              />&nbsp;
+              />
+              &nbsp;
               {experience.frontmatter.company}
             </a>
           </p>
@@ -46,7 +45,9 @@ export default function ExperienceTemplate({ data }) {
               Languages used:&nbsp;
               {experience.frontmatter.languages.map((l, i) => (
                 <span key={i}>
-                  <Badge pill variant="light">{l}</Badge>
+                  <Badge pill variant="light">
+                    {l}
+                  </Badge>
                   &nbsp;
                 </span>
               ))}
@@ -59,7 +60,9 @@ export default function ExperienceTemplate({ data }) {
               Tools used:&nbsp;
               {experience.frontmatter.tools.map((t, i) => (
                 <span key={i}>
-                  <Badge pill variant="light">{t}</Badge>
+                  <Badge pill variant="light">
+                    {t}
+                  </Badge>
                   &nbsp;
                 </span>
               ))}
@@ -68,12 +71,12 @@ export default function ExperienceTemplate({ data }) {
         )}
         <div
           className="mt-4"
-          dangerouslySetInnerHTML={{__html: experience.html}}
+          dangerouslySetInnerHTML={{ __html: experience.html }}
         />
       </div>
     </Layout>
   );
-};
+}
 
 export const experienceQuery = graphql`
   query ExperienceBySlug($path: String!) {

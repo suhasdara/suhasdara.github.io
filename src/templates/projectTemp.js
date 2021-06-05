@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Badge } from "react-bootstrap";
 import { graphql } from "gatsby";
 
@@ -14,9 +14,7 @@ export default function ProjectTemplate({ data }) {
     <Layout>
       <SEO title={project.frontmatter.title} />
       <div className="pt-5">
-        <h1 className="text-light mb-3">
-          {project.frontmatter.title}
-        </h1>
+        <h1 className="text-light mb-3">{project.frontmatter.title}</h1>
         <h4 className="text-muted mb-3">
           <DateRange
             startDates={project.frontmatter.startDates}
@@ -29,7 +27,9 @@ export default function ProjectTemplate({ data }) {
               Languages used:&nbsp;
               {project.frontmatter.languages.map((l, i) => (
                 <span key={i}>
-                  <Badge pill variant="light">{l}</Badge>
+                  <Badge pill variant="light">
+                    {l}
+                  </Badge>
                   &nbsp;
                 </span>
               ))}
@@ -42,7 +42,9 @@ export default function ProjectTemplate({ data }) {
               Tools used:&nbsp;
               {project.frontmatter.tools.map((t, i) => (
                 <span key={i}>
-                  <Badge pill variant="light">{t}</Badge>
+                  <Badge pill variant="light">
+                    {t}
+                  </Badge>
                   &nbsp;
                 </span>
               ))}
@@ -79,9 +81,7 @@ export default function ProjectTemplate({ data }) {
         {project.frontmatter.projectLink && (
           <div className="mb-1">
             <p className="mb-0">
-              <a href={project.frontmatter.projectLink}>
-                View Live Website
-              </a>
+              <a href={project.frontmatter.projectLink}>View Live Website</a>
             </p>
           </div>
         )}
@@ -107,12 +107,12 @@ export default function ProjectTemplate({ data }) {
         </div>
         <div
           className="mt-4"
-          dangerouslySetInnerHTML={{__html: project.html}}
+          dangerouslySetInnerHTML={{ __html: project.html }}
         />
       </div>
     </Layout>
   );
-};
+}
 
 export const projectQuery = graphql`
   query ProjectBySlug($path: String!) {

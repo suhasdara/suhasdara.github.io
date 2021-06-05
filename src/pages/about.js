@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import Layout from "../components/layout";
@@ -13,18 +13,27 @@ import Hiking from "../../content/images/about/hiking.jpg";
 
 const MediaRow = ({ media, mediaAlt, mediaHeight, rowNum, children }) => {
   const flexDir = rowNum % 2 === 0 ? "flex-md-row" : "flex-md-row-reverse";
-  const justifyDir = rowNum % 2 === 0 ? "justify-content-md-end" : "justify-content-md-start";
+  const justifyDir =
+    rowNum % 2 === 0 ? "justify-content-md-end" : "justify-content-md-start";
 
   return (
     <Row className={`d-flex ${flexDir} align-items-center`}>
       <Col xs="12" md="3" lg="2" />
       <Col xs="12" md="6" lg="8" className="px-0 px-md-2">
-        <p className="text-light my-2 my-md-0">
-          {children}
-        </p>
+        <p className="text-light my-2 my-md-0">{children}</p>
       </Col>
-      <Col xs="12" md="3" lg="2" className={`d-flex ${justifyDir} justify-content-center p-0`}>
-        <ModalImage src={media} alt={mediaAlt} title={mediaAlt} height={mediaHeight} />
+      <Col
+        xs="12"
+        md="3"
+        lg="2"
+        className={`d-flex ${justifyDir} justify-content-center p-0`}
+      >
+        <ModalImage
+          src={media}
+          alt={mediaAlt}
+          title={mediaAlt}
+          height={mediaHeight}
+        />
       </Col>
     </Row>
   );
@@ -37,36 +46,32 @@ const AboutPage = () => {
       <h1 className="text-center text-light pt-5">About Me</h1>
       <Container>
         <Row>
-          <p className="mt-3 text-light">
-            Hello! I'm Suhas Dara!
-          </p>
+          <p className="mt-3 text-light">Hello! I'm Suhas Dara!</p>
         </Row>
         <Row>
           <p className="text-light">
             I grew up in Pune, India, and studied at an IB school from
-            kindergarten all the way to high school. I graduated high school
-            at the age of 15 and decided to take a break before I tackled
-            college. During the gap year, I experienced the joy of programming
-            for the first time, and I realized it is my future. I majored in
-            Computer Science at The University of Texas at Austin and received
-            my Bachelors in May 2021.
+            kindergarten all the way to high school. I graduated high school at
+            the age of 15 and decided to take a break before I tackled college.
+            During the gap year, I experienced the joy of programming for the
+            first time, and I realized it is my future. I majored in Computer
+            Science at The University of Texas at Austin and received my
+            Bachelors in May 2021.
           </p>
         </Row>
         <Row>
           <p className="text-light">
-            I enjoy working on new projects and learning new technologies.
-            I also enjoy making my life easier by making automation scripts to
+            I enjoy working on new projects and learning new technologies. I
+            also enjoy making my life easier by making automation scripts to
             ease my developer life. Using new programming languages and finding
-            differences between them provides me satisfaction. I have dabbled
-            in web development, mobile application development, machine
-            learning, deep learning, and a lot more, but I am yet to discover
-            what interests me best.
+            differences between them provides me satisfaction. I have dabbled in
+            web development, mobile application development, machine learning,
+            deep learning, and a lot more, but I am yet to discover what
+            interests me best.
           </p>
         </Row>
         <Row>
-          <p className="text-light">
-            Outside of computers and programming...
-          </p>
+          <p className="text-light">Outside of computers and programming...</p>
         </Row>
         <MediaRow
           media={Games}
@@ -101,7 +106,8 @@ const AboutPage = () => {
         >
           I try to perfect songs I like on the piano. I then post them on
           <a href="https://www.youtube.com/channel/UCPmmJhGiW25eVrr4uepNP1w">
-            {" "}YouTube{" "}
+            {" "}
+            YouTube{" "}
           </a>
           if I succeed!
         </MediaRow>
@@ -129,4 +135,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-

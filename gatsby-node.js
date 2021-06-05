@@ -1,10 +1,10 @@
-const path = require('path');
+const path = require("path");
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const projectTemplate = path.resolve('src/templates/projectTemp.js')
-  const experienceTemplate = path.resolve('src/templates/experienceTemp.js')
+  const projectTemplate = path.resolve("src/templates/projectTemp.js");
+  const experienceTemplate = path.resolve("src/templates/experienceTemp.js");
 
   return graphql(`
     query ContentIndexQuery {
@@ -19,17 +19,17 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(res => {
-    if(res.errors) {
+  `).then((res) => {
+    if (res.errors) {
       return Promise.reject(res.errors);
     }
     res.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if(node.frontmatter.postType === "project") {
+      if (node.frontmatter.postType === "project") {
         createPage({
           path: node.frontmatter.slug,
           component: projectTemplate,
         });
-      } else if(node.frontmatter.postType === "experience") {
+      } else if (node.frontmatter.postType === "experience") {
         createPage({
           path: node.frontmatter.slug,
           component: experienceTemplate,
@@ -37,6 +37,6 @@ exports.createPages = ({ actions, graphql }) => {
       } else {
         return Promise.reject("Invalid frontmatter posttype");
       }
-    })
-  })
+    });
+  });
 };

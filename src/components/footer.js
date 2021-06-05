@@ -10,15 +10,15 @@ function Footer({ hideFooter }) {
       {!hideFooter && (
         <>
           <Row className="d-flex justify-content-center mx-1 my-0">
+            <span className="d-inline-block px-2">The Suhas Space</span>
             <span className="d-inline-block px-2">
-              The Suhas Space
-            </span>
-            <span className="d-inline-block px-2">
-              <FontAwesomeIcon icon={faGithub} />&ensp;
+              <FontAwesomeIcon icon={faGithub} />
+              &ensp;
               <a href="https://www.github.com/suhasdara">Github</a>
             </span>
             <span className="d-inline-block px-2">
-              <FontAwesomeIcon icon={faLinkedin} />&ensp;
+              <FontAwesomeIcon icon={faLinkedin} />
+              &ensp;
               <a href="https://www.linkedin.com/in/suhas-dara">LinkedIn</a>
             </span>
           </Row>
@@ -38,11 +38,11 @@ function Footer({ hideFooter }) {
 }
 
 Footer.defaultProps = {
-  hideFooter: false
+  hideFooter: false,
 };
 
 Footer.propTypes = {
-  hideFooter: PropTypes.bool
+  hideFooter: PropTypes.bool,
 };
 
 export default Footer;

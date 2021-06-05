@@ -8,12 +8,7 @@ import Icon from "../../content/images/icon.png";
 
 const Header = ({ active }) => {
   return (
-    <Navbar
-      expand="md"
-      variant="light"
-      className="bg-light"
-      collapseOnSelect
-    >
+    <Navbar expand="md" variant="light" className="bg-light" collapseOnSelect>
       <Navbar.Brand
         as={Link}
         to="/"
@@ -43,7 +38,7 @@ const Header = ({ active }) => {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  )
+  );
 };
 
 export default Header;

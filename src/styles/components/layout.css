@@ -1,4 +1,6 @@
-body, #___gatsby, #gatsby-focus-wrapper {
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
   min-height: 100vh;
 }
 

@@ -30,13 +30,13 @@ export default function ExperiencePage({ data }) {
       </div>
     </Layout>
   );
-};
+}
 
 export const experiencesQuery = graphql`
   query ExperienceIndexQuery {
     allMarkdownRemark(
-      sort: {order: DESC, fields: frontmatter___endDates}
-      filter: {frontmatter: {postType: {eq: "experience"}}}
+      sort: { order: DESC, fields: frontmatter___endDates }
+      filter: { frontmatter: { postType: { eq: "experience" } } }
     ) {
       edges {
         node {

@@ -3,13 +3,13 @@ title: Microsoft Internship
 company: Microsoft
 companyLink: https://www.microsoft.com/
 startDates:
-    - 2020-05-18
+  - 2020-05-18
 endDates:
-    - 2020-08-07
+  - 2020-08-07
 languages:
-    - C#
+  - C#
 tools:
-    - .NET Framework
+  - .NET Framework
 slug: /experience/microsoft
 postType: experience
 image: featured.png

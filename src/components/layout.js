@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { GlobalStyle } from "../styles/components/layout.styles";
-import "../styles/components/layout.css"
+import "../styles/components/layout.css";
 import Header from "./header";
 import Footer from "./footer";
 
@@ -21,13 +21,13 @@ function Layout({ children, active, hideFooter }) {
 
 Layout.defaultProps = {
   active: undefined,
-  hideFooter: false
+  hideFooter: false,
 };
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   active: PropTypes.string,
-  hideFooter: PropTypes.bool
+  hideFooter: PropTypes.bool,
 };
 
 export default Layout;
