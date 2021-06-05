@@ -1,2 +1,0 @@
-(self.webpackChunkthe_suhas_space=self.webpackChunkthe_suhas_space||[]).push([[682],{5518:function(e,t,u){"use strict";u.r(t);var s=u(7294),a=u(5783),n=u(3751);t.default=function(){return s.createElement(a.Z,null,s.createElement(n.Z,{title:"About Me"}))}}}]);
-//# sourceMappingURL=component---src-pages-about-js-58cc9d8e2a27f977c5b6.js.map
