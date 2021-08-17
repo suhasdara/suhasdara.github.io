@@ -5,6 +5,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   const projectTemplate = path.resolve("src/templates/projectTemp.js");
   const experienceTemplate = path.resolve("src/templates/experienceTemp.js");
+  const blogTemplate = path.resolve("src/templates/blogTemp.js");
 
   return graphql(`
     query ContentIndexQuery {
@@ -33,6 +34,11 @@ exports.createPages = ({ actions, graphql }) => {
         createPage({
           path: node.frontmatter.slug,
           component: experienceTemplate,
+        });
+      } else if (node.frontmatter.postType === "blog") {
+        createPage({
+          path: node.frontmatter.slug,
+          component: blogTemplate,
         });
       } else {
         return Promise.reject("Invalid frontmatter posttype");

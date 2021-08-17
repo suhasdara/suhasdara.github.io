@@ -35,6 +35,11 @@ const Header = ({ active }) => {
               Experience
             </Nav.Link>
           </Nav.Item>
+          <Nav.Item className="py-1 px-3 px-md-1">
+            <Nav.Link eventKey="blogs" as={Link} to="/blogs">
+              Blogs
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
