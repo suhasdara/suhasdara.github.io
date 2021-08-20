@@ -21,6 +21,7 @@ export default function BlogPage({ data }) {
               title={project.node.frontmatter.title}
               date={project.node.frontmatter.date}
               link={project.node.frontmatter.slug}
+              excerpt={project.node.excerpt}
               timeToRead={project.node.timeToRead}
             />
           ))}
@@ -40,6 +41,7 @@ export const blogsQuery = graphql`
         node {
           id
           timeToRead
+          excerpt
           frontmatter {
             title
             slug

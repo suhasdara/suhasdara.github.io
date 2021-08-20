@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    font: 120%/1.45em georgia, serif, sans-serif;
+    font: 115%/1.45em georgia, serif, sans-serif;
     box-sizing: border-box;
     overflow-y: scroll;
   }

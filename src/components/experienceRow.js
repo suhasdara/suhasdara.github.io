@@ -9,7 +9,7 @@ import DateRange from "./dateRange";
 function ExperienceRow({ title, company, imgSrc, startDates, endDates, link }) {
   return (
     <Row className="py-2">
-      <Col className="first-col">
+      <Col className="exp-first-col">
         <Link to={link}>
           <img
             src={imgSrc}
@@ -19,7 +19,7 @@ function ExperienceRow({ title, company, imgSrc, startDates, endDates, link }) {
           />
         </Link>
       </Col>
-      <Col className="second-col d-flex flex-column justify-content-center px-0">
+      <Col className="exp-second-col d-flex flex-column justify-content-center px-0">
         <Link to={link}>
           <h3 className="text-light mb-2">{title}</h3>
         </Link>
