@@ -4,22 +4,28 @@ import PropTypes from "prop-types";
 
 import "../styles/components/modalImage.css";
 
-function ModalImage({ src, alt, title, height }) {
+function ModalImage(props) {
   const [show, setShow] = useState(false);
+  let { src, alt, title, height, ...rest } = props
+  // Ugly hacks against gatsby image wrapper >:(
+  let img_style
+  if(Object.keys(rest).length !== 0) {
+    img_style = { height: "auto", maxHeight: height, position: "absolute", top: "0px", left: "0px" }
+  } else {
+    img_style = { height: "auto", maxHeight: height }
+  }
 
   return (
     <>
-      <div
+      <img
+        {...rest}
         onClick={() => setShow(!show)}
-        className="d-flex justify-content-center click-image"
-      >
-        <img
-          src={src}
-          alt={alt}
-          title={title}
-          style={{ height: "auto", maxHeight: height }}
-        />
-      </div>
+        className={rest.className + " click-image"}
+        src={src}
+        alt={alt}
+        title={title}
+        style={img_style}
+      />
       <Modal
         centered
         show={show}
@@ -48,7 +54,7 @@ ModalImage.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.string,
-  height: PropTypes.number.isRequired,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default ModalImage;

@@ -5,9 +5,10 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import DateRange from "../components/dateRange";
+import Content from "../components/content";
 
 export default function ExperienceTemplate({ data }) {
-  const experience = data.markdownRemark;
+  const experience = data.mdx;
 
   return (
     <Layout>
@@ -69,10 +70,7 @@ export default function ExperienceTemplate({ data }) {
             </p>
           </div>
         )}
-        <div
-          className="mt-4"
-          dangerouslySetInnerHTML={{ __html: experience.html }}
-        />
+        <Content className="mt-4">{experience.body}</Content>
       </div>
     </Layout>
   );
@@ -80,8 +78,8 @@ export default function ExperienceTemplate({ data }) {
 
 export const experienceQuery = graphql`
   query ExperienceBySlug($path: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $path } }) {
-      html
+    mdx(frontmatter: { slug: { eq: $path } }) {
+      body
       frontmatter {
         title
         company

@@ -13,7 +13,7 @@ module.exports = {
     `gatsby-remark-images`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-feed-mdx`,
       options: {
         query: `
           {
@@ -28,27 +28,29 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
+                  description: edge.node.fields.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
                   custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
+                });
+              });
             },
             query: `
               {
-                allMarkdownRemark(
+                allMdx(
                   sort: { order: DESC, fields: [frontmatter___date] },
                   filter: { frontmatter: { postType: { eq: "blog" } } },
                 ) {
                   edges {
                     node {
-                      excerpt
                       html
+                      fields {
+                        excerpt
+                      }
                       frontmatter {
                         title
                         date
@@ -79,6 +81,23 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              linkImagesToOriginal: false,
+              backgroundColor: `transparent`,
+              disableBgImage: true,
+              maxWidth: 400,
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -104,20 +123,6 @@ module.exports = {
       options: {
         name: `experience`,
         path: `${__dirname}/content/blogs`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        excerpt_separator: `<!-- excerpt -->`,
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 800,
-            },
-          },
-        ],
       },
     },
   ],

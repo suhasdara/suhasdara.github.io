@@ -7,7 +7,7 @@ import SEO from "../components/seo";
 import ProjectCard from "../components/projectCard";
 
 export default function ProjectsPage({ data }) {
-  const projects = data.allMarkdownRemark.edges;
+  const projects = data.allMdx.edges;
 
   return (
     <Layout active="projects">
@@ -33,7 +33,7 @@ export default function ProjectsPage({ data }) {
 
 export const projectsQuery = graphql`
   query ProjectsIndexQuery {
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: frontmatter___endDates }
       filter: { frontmatter: { postType: { eq: "project" } } }
     ) {

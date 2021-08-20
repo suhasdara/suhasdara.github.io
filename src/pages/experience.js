@@ -7,7 +7,7 @@ import SEO from "../components/seo";
 import ExperienceRow from "../components/experienceRow";
 
 export default function ExperiencePage({ data }) {
-  const experiences = data.allMarkdownRemark.edges;
+  const experiences = data.allMdx.edges;
 
   return (
     <Layout active="experience">
@@ -34,7 +34,7 @@ export default function ExperiencePage({ data }) {
 
 export const experiencesQuery = graphql`
   query ExperienceIndexQuery {
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: frontmatter___endDates }
       filter: { frontmatter: { postType: { eq: "experience" } } }
     ) {

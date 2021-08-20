@@ -6,9 +6,10 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import DateRange from "../components/dateRange";
 import ModalImage from "../components/modalImage";
+import Content from "../components/content";
 
 export default function ProjectTemplate({ data }) {
-  const project = data.markdownRemark;
+  const project = data.mdx;
 
   return (
     <Layout>
@@ -105,10 +106,7 @@ export default function ProjectTemplate({ data }) {
             height={300}
           />
         </div>
-        <div
-          className="mt-4"
-          dangerouslySetInnerHTML={{ __html: project.html }}
-        />
+        <Content className="mt-4">{project.body}</Content>
       </div>
     </Layout>
   );
@@ -116,8 +114,8 @@ export default function ProjectTemplate({ data }) {
 
 export const projectQuery = graphql`
   query ProjectBySlug($path: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $path } }) {
-      html
+    mdx(frontmatter: { slug: { eq: $path } }) {
+      body
       frontmatter {
         title
         startDates

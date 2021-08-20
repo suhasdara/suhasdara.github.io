@@ -1,5 +1,27 @@
 const path = require("path");
 
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
+
+  const fm = "---";
+  const end = "<!--excerpt-->";
+  if(node.internal.type === `Mdx`) {
+    let content = node.internal.content;
+    let fmStart = content.indexOf(fm);
+    let fmEnd = content.indexOf(fm, fmStart + 1) + fm.length;
+    let excerptEnd = content.indexOf(end);
+    excerptEnd = excerptEnd === -1 ? content.length : excerptEnd;
+    let excerpt = content.substring(fmEnd, excerptEnd);
+    excerpt = excerpt.trim();
+
+    createNodeField({
+      node,
+      name: `excerpt`,
+      value: excerpt,
+    });
+  }
+};
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
@@ -9,7 +31,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     query ContentIndexQuery {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             frontmatter {
@@ -24,7 +46,7 @@ exports.createPages = ({ actions, graphql }) => {
     if (res.errors) {
       return Promise.reject(res.errors);
     }
-    res.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    res.data.allMdx.edges.forEach(({ node }) => {
       if (node.frontmatter.postType === "project") {
         createPage({
           path: node.frontmatter.slug,

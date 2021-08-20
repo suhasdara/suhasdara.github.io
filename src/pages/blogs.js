@@ -7,7 +7,7 @@ import SEO from "../components/seo";
 import BlogRow from "../components/blogRow";
 
 export default function BlogPage({ data }) {
-  const blogs = data.allMarkdownRemark.edges;
+  const blogs = data.allMdx.edges;
 
   return (
     <Layout active="blogs">
@@ -21,7 +21,7 @@ export default function BlogPage({ data }) {
               title={project.node.frontmatter.title}
               date={project.node.frontmatter.date}
               link={project.node.frontmatter.slug}
-              excerpt={project.node.excerpt}
+              excerpt={project.node.fields.excerpt}
               timeToRead={project.node.timeToRead}
             />
           ))}
@@ -33,7 +33,7 @@ export default function BlogPage({ data }) {
 
 export const blogsQuery = graphql`
   query BlogsIndexQuery {
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: frontmatter___date }
       filter: { frontmatter: { postType: { eq: "blog" } } }
     ) {
@@ -41,7 +41,9 @@ export const blogsQuery = graphql`
         node {
           id
           timeToRead
-          excerpt
+          fields {
+            excerpt
+          }
           frontmatter {
             title
             slug
