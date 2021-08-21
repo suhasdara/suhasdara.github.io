@@ -62,8 +62,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "The Suhas Space RSS Feed",
-            // link: "https://feeds.feedburner.com/gatsby/blog",
+            title: "The Suhas Space",
           },
         ],
       },
