@@ -1,10 +1,11 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import BlogRow from "../components/blogRow";
+import SubscribeButton from "../components/subscribeButton";
 
 export default function BlogPage({ data }) {
   const blogs = data.allMdx.edges;
@@ -13,8 +14,16 @@ export default function BlogPage({ data }) {
     <Layout active="blogs">
       <SEO title="Blogs" />
       <div className="pt-5">
-        <h1 className="text-center text-light">Blogs</h1>
-        <Container className="pt-3">
+        <Container>
+          <Row className="pb-3">
+            <Col/>
+            <Col>
+              <h1 className="text-center text-light">Blogs</h1>
+            </Col>
+            <Col className="d-flex flex-column align-items-end">
+              <SubscribeButton text="Subscribe" />
+            </Col>
+          </Row>
           {blogs.map((project) => (
             <BlogRow
               key={project.node.id}

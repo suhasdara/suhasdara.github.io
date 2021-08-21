@@ -3,14 +3,15 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faDownload } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "gatsby";
 
 import "../styles/pages/index.css";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import SubscribeButton from "../components/subscribeButton";
 
 import Logo from "../../content/images/icon.png";
 import Suhas from "../../content/images/Suhas.jpg";
-import { Link } from "gatsby";
 
 const Media = ({ icon, link }) => (
   <a
@@ -94,6 +95,7 @@ const IndexPage = () => {
                 <FontAwesomeIcon icon={faDownload} /> Download Resume
               </Button>
             </a>
+            <SubscribeButton text="Subscribe to blogs" className="p-2 m-2 det-btn" />
           </Col>
         </Row>
         {!disabledAbout && (
