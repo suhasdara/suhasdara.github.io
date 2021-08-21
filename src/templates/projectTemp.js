@@ -12,9 +12,9 @@ export default function ProjectTemplate({ data }) {
   const project = data.mdx;
 
   return (
-    <Layout>
+    <Layout backLink="/projects">
       <SEO title={project.frontmatter.title} />
-      <div className="pt-5">
+      <div className="pt-md-5 pt-3">
         <h1 className="text-light mb-3">{project.frontmatter.title}</h1>
         <h4 className="text-muted mb-3">
           <DateRange

@@ -10,8 +10,11 @@ exports.onCreateNode = ({ node, actions }) => {
     let fmStart = content.indexOf(fm);
     let fmEnd = content.indexOf(fm, fmStart + 1) + fm.length;
     let excerptEnd = content.indexOf(end);
-    excerptEnd = excerptEnd === -1 ? content.length : excerptEnd;
-    let excerpt = content.substring(fmEnd, excerptEnd);
+    let ellipsis = excerptEnd === -1 ? "..." : "";
+    excerptEnd = excerptEnd === -1 ?
+      Math.min(content.length, fmEnd + 200) :
+      excerptEnd;
+    let excerpt = content.substring(fmEnd, excerptEnd) + ellipsis;
     excerpt = excerpt.trim();
 
     createNodeField({

@@ -22,7 +22,7 @@ export default function BlogPage({ data }) {
               date={project.node.frontmatter.date}
               link={project.node.frontmatter.slug}
               excerpt={project.node.fields.excerpt}
-              timeToRead={project.node.timeToRead}
+              timeToRead={Math.ceil(project.node.timeToRead * 1.25)} //I'm a slow reader
             />
           ))}
         </Container>

@@ -13,18 +13,19 @@ export default function BlogTemplate({ data }) {
     month: "short",
     day: "numeric",
   });
+  let timeToRead = Math.ceil(blog.timeToRead * 1.25) //I'm a slow reader
 
   return (
-    <Layout>
+    <Layout backLink="/blogs">
       <SEO title={blog.frontmatter.title} />
-      <div className="pt-5">
+      <div className="pt-md-5 pt-3">
         <h1 className="text-light mb-3">{blog.frontmatter.title}</h1>
         <h4 className="text-muted mb-3">
           <p className="my-0">
             <span className="d-inline-block">{date}</span>
           </p>
           <p className="my-0">
-            <span className="d-inline-block">{blog.timeToRead} min. read</span>
+            <span className="d-inline-block">{timeToRead} min. read</span>
           </p>
         </h4>
         <Content className="mt-4">{blog.body}</Content>
