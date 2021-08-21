@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Suhas Space RSS Feed]]></title><description><![CDATA[Suhas Dara's personal website.]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 21 Aug 2021 16:17:14 GMT</lastBuildDate><item><title><![CDATA[FedEx + Customs = Nightmare]]></title><description><![CDATA[While being situated in Pune, India, I recently did a remote internship with
+a New York-based FinTech company, Two Sigma. They shipped me a laptop and
+peripheral devices via FedEx and what followed was a nightmare.]]></description><link>https://suhasdara.me/blogs/ts-fedex</link><guid isPermaLink="false">https://suhasdara.me/blogs/ts-fedex</guid><pubDate>Sat, 21 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;While being situated in Pune, India, I recently did a remote internship with
+a New York-based FinTech company, Two Sigma. They shipped me a laptop and
+peripheral devices via FedEx and what followed was a nightmare.&lt;/p&gt;&lt;p&gt;I had been in India since December last year and completed my last semester
+of studies remotely. When Two Sigma let me know that I can do my internship
+from India, I was excited. As was with my Microsoft remote internship last
+year, Two Sigma shipped the equipment to the interns&amp;#x27; remote locations.
+While for the majority of interns that would be within the US,
+it turned out to be quite a big problem for me being outside the US.&lt;/p&gt;&lt;p&gt;A few days before my internship was to start, I received an email from FedEx
+that asked for documents to allow the entry of the shipment into the country.
+Before I received the email, I hadn&amp;#x27;t considered that the shipment would be
+of quite a high value and that it would need to be cleared by customs. And
+so the 6-week saga begins.&lt;/p&gt;&lt;p&gt;The email listed some documents that I was not familiar with at all. While
+I was asked for the usual Indian identification documents, I was also asked
+for something called an Import Export Code (IEC), a Bank Authorised Dealer
+code (Bank AD code), and some authorization forms to be filled by the
+company. It hadn&amp;#x27;t occurred to me yet that FedEx was considering this as a
+business import! In a sense it may appear to be true, but it was not,
+because the company does not have a branch in India.&lt;/p&gt;&lt;p&gt;I ask them to call me so that I can clarify the specifics of my situation,
+namely that I am not buying anything, and I am handling the shipment as an
+individual without any financial transaction involved. The lady who called me assured
+me that the situation can be resolved if I supply a letter from the company
+indicating everything I had just said. I said I could send that by the next day,
+considering the fact that going forward anything that FedEx asks for can only be
+supplied the next working day (because of a timezone difference with New York).
+Two Sigma&amp;#x27;s HR and Recruiting were &lt;strong&gt;really&lt;/strong&gt; helpful throughout the process,
+and they immediately provided me with a letter that I forwarded.&lt;/p&gt;&lt;p&gt;I thought that was going to be it, but then entered a new customer support
+person (one of the most incompetent people I&amp;#x27;ve ever interacted with as
+you&amp;#x27;ll see), and SunImpex, a mediator between FedEx and customs for
+high value shipments.&lt;/p&gt;&lt;p&gt;The FedEx customer support person kept asking for the IEC and Bank AD code
+countless number of times even after explaining the situation. This person
+did not understand until after a phone call and explaining everything all
+over.&lt;/p&gt;&lt;p&gt;Meanwhile, SunImpex representative began the process of creating a Bill of
+Entry (BoE) document for the shipment which listed a customs duty of over 70%
+of the actual value itself! While I was shocked about that duty amount,
+Two Sigma was ready to pay any amount to get the shipment cleared. Still,
+sadly things were destined to go downhill.&lt;/p&gt;&lt;p&gt;Apparently, customs (or may be SunImpex, we will never know) wasn&amp;#x27;t satisfied with the
+company becoming ready to pay the customs duties and asked for proof of value documents
+(namely purchase order copies for each item in the package or bank remittance
+copies for each item), and also a &lt;em&gt;&amp;quot;technical write-up&amp;quot;&lt;/em&gt;, which is
+basically a good description of the items in the shipment. I was extremely
+stressed at this point as my internship was to start in just two days, and
+didn&amp;#x27;t know what to do. I wasn&amp;#x27;t expecting the shipment to get cleared or
+the company to be able to provide the requested documents. But, Two Sigma
+HR did provide the purchase order documents... the catch being, all the orders
+were bulk (duh). They also gave me a company letterhead so that I could create any
+&lt;em&gt;&amp;quot;technical&amp;quot;&lt;/em&gt; documents that FedEx/customs was going to ask further.&lt;/p&gt;&lt;p&gt;Soon, my internship began without any of the equipment reaching me. Two
+Sigma tech support was really helpful and set up VPN login through my
+personal laptop for as long as required. The process was painful each day
+as I had to log in with special token codes that sometimes randomly expired,
+and I also had to face a &lt;strong&gt;LOT&lt;/strong&gt; of latency because of connecting to a Chicago
+VM through a Tokyo VM (yeah, double latency).&lt;/p&gt;&lt;p&gt;Anyways, on the FedEx/SunImpex/customs front, I had a whole week of radio
+silence. Finally, they responded with an aggravating message. Remember, how
+they asked me to either submit purchase orders &lt;strong&gt;OR&lt;/strong&gt; bank remittances?
+Well, now they want both. Two Sigma was nice enough to provide me these as
+well, although I was expecting their patience also to run out by this point.
+According to SunImpex, customs was still not satisfied with these and
+wanted the Manufacturer&amp;#x27;s price lists (what??). To their credit, not all
+the purchase orders and bank remittances matched up, and they were bulk
+as well, but come on, how long did they plan on torturing their customer?&lt;/p&gt;&lt;p&gt;Well, this was the limit. Two Sigma did not have any way of getting
+manufacturer&amp;#x27;s price lists, and SunImpex was not satisfied with the
+listings on the manufacturer&amp;#x27;s website. I tried going the Twitter route
+(as it worked for my cousin before), and also tried calling customer
+service, both to no avail. SunImpex was stuck on manufacturer&amp;#x27;s price lists
+like a broken radio and the FedEx customer support person was of no use and
+just stopped responding to my emails.&lt;/p&gt;&lt;p&gt;After a few days, the FedEx customer support person just told me to visit
+customs and explain in person. I would literally have to travel (3.5 hours)
+from Pune to Mumbai for explaining the exact same thing that I have been
+telling them since the start. They refused to give any contact information
+of the customs official, or at least the customs department itself saying they
+were not authorized to give. I tried scourging the Internet for this information,
+but as with every other Indian government agency, no phone number worked. They
+gave me the address of the place I had to visit, and it was the last straw.&lt;/p&gt;&lt;p&gt;Both HR and my manager at Two Sigma did not want me to travel during these
+COVID times just to get shipment cleared, but I was tired of dealing with FedEx over
+email and also dealing with the double latency during work hours every day. The
+shipment was just sitting in Mumbai for 4 weeks since it arrived, waiting for
+clearance. At the end of week 3 of my internship, my dad drove me to Mumbai to the
+customs location. My morale was low, and this was a Hail Mary attempt at getting
+something accomplished with FedEx.&lt;/p&gt;&lt;p&gt;Turns out we need a pass per person just to get inside the building. We tried
+getting passes from an office that was 300 meters away, but the person stamping the
+passes wanted a letter from SunImpex, who, admittedly because of FedEx/me not
+informing them, did not provide me with any letter. Right from there I tried
+contacting them and FedEx to no avail.
+It was the middle of monsoon, was raining on and off all day, and we were
+waiting outside the building under an umbrella hoping to run into some higher level
+authority. We got lucky and ran into some FedEx official. He sympathized with
+our situation and got us a document to show to the Pass-issuing person. We
+finally got passes to enter the building after walking back and forth between the
+two building a couple of times in the rain.&lt;/p&gt;&lt;p&gt;We met with a SunImpex person inside who said he would get us in contact with the
+customs official who was not in his room. Great! When we finally met the
+customs official, he understood our situation immediately and asked why
+we traveled all the way from Pune! We pointed out that the FedEx and
+SunImpex people were pretty much incompetent in handling any case that is
+slightly different from the usual. Anyways, the official just asked for
+a signed letter from me indicating the remote internship and situation, and
+assured that the shipment would get cleared by the end of the day.&lt;/p&gt;&lt;p&gt;With that assurance, we drove back to Pune losing the whole day. I was actually
+surprised when the shipment was cleared the next morning itself. I really was not
+expecting anything to happen. A couple of days later, I received my equipment. One
+surprise was that the huge customs duty that was expecting to pay to the delivery
+guy was seemingly waived-off by the customs official! That was the only good part.&lt;/p&gt;&lt;p&gt;However, the end of the ordeal was not to be seen yet. I received my equipment in a
+flimsy cardboard box among a bunch of styrofoam pellets. This could &lt;strong&gt;NOT&lt;/strong&gt; definitely
+be the box that the equipment was shipped in as I&amp;#x27;ve never seen such a shoddy
+job by FedEx in the US. Turns out the equipment was opened and inspected
+by customs. From Two Sigma&amp;#x27;s perspective, that is tampering. Two Sigma
+is very particular about their security practices. When I informed them that
+the laptop charger was missing and the laptop&amp;#x27;s
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Security_bag&quot;&gt;tamper evidence bag&lt;/a&gt; was
+already opened, they told me I couldn&amp;#x27;t use the laptop. Four and a half
+weeks of effort just gone, &lt;strong&gt;poof&lt;/strong&gt;.&lt;/p&gt;&lt;p&gt;However, Two Sigma was dead set on delivering a laptop to me for a good
+internship experience. They really know how to treat their employees.
+They sent a new shipment within the next two days. At that moment, I was
+more distressed about dealing with FedEx again than happy about them
+sending another laptop to improve my experience. Luckily(?), this time
+another FedEx representative contacted me even before the shipment entered
+India, instead of the incompetent person from last time. After explaining
+the whole situation over a 30-minute phone call, he assured smooth
+processing this time around.&lt;/p&gt;&lt;p&gt;Shockingly, I was contacted by SunImpex once again asking the same documents as
+before (IEC, Bank AD code etc.). I was annoyed at this point; I bombarded them with
+every single document that I had provided the last time, and I sent a
+letter addressing the customs official requesting him to clear this
+shipment as the previous shipment could not be used because of their deeds.
+At this point they didn&amp;#x27;t contact me further, and thankfully the shipment
+was cleared without any further trouble. I was dreading the day I
+had to open the shipment to make sure it was not tampered with again...&lt;/p&gt;&lt;p&gt;I finally received the shipment at the end of week 5 of my internship.
+Customs apparently once again waived-off the duties, and this time the shipment
+came in what seemed to be its original packaging. This time the laptop&amp;#x27;s
+tamper evidence bag was not torn, which meant I could finally use the
+laptop (&lt;strong&gt;&lt;em&gt;Tired Hurray!&lt;/em&gt;&lt;/strong&gt;)&lt;/p&gt;&lt;p&gt;I really have to thank Two Sigma HR (Haley and Ellen) for putting up with
+this whole ordeal till the end and being supportive throughout the process.&lt;/p&gt;&lt;p&gt;In all of this, there was something still looming... I had to ship the
+two laptops back to Two Sigma at the end of my internship, through FedEx.&lt;/p&gt;&lt;p&gt;The internship finally ended after 10th week. After talking with a local FedEx
+location, I basically figured out that in individual capacity it is impossible to
+ship the laptops out of India through any courier service because the value of each
+item is more than Rs. 25000, which is roughly 340 USD (because of Indian Government
+export rules). So, I am stuck with the laptops for now, which honestly, is the best
+outcome I suppose... don&amp;#x27;t have to deal with FedEx and customs again. I have to
+find a way to send them to US as part of carry-on luggage.&lt;/p&gt;&lt;p&gt;I probably will never use FedEx for international shipping to India in my life
+after this nightmare...&lt;/p&gt;</content:encoded></item></channel></rss>
