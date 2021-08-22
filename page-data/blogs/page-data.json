@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-blogs-js",
     "path": "/blogs/",
-    "result": {"data":{"allMdx":{"edges":[{"node":{"id":"1884bfee-f79b-550e-b65b-bd574187d946","timeToRead":8,"fields":{"excerpt":"While being situated in Pune, India, I recently did a remote internship with\na New York-based FinTech company, Two Sigma. They shipped me a laptop and\nperipheral devices via FedEx and what followed was a nightmare."},"frontmatter":{"title":"FedEx + Customs = Nightmare","slug":"/blogs/ts-fedex","date":"2021-08-21T00:00:00.000Z"}}}]}},"pageContext":{}},
+    "result": {"data":{"allMdx":{"edges":[{"node":{"id":"2c307c23-9253-5fb5-aca6-49c25228cee3","timeToRead":8,"fields":{"excerpt":"While being situated in Pune, India, I recently did a remote internship with\na New York-based company. They shipped me a laptop and peripheral devices via\nFedEx and what followed was a nightmare."},"frontmatter":{"title":"FedEx + Customs = Nightmare","slug":"/blogs/fedex-nightmare","date":"2021-08-21T00:00:00.000Z"}}}]}},"pageContext":{}},
     "staticQueryHashes": ["63159454"]}
