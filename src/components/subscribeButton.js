@@ -8,9 +8,9 @@ function SubscribeButton({ text, className }) {
   return (
     <>
       <Button
-        variant="light"
+        variant="danger"
         onClick={() => setShow(!show)}
-        className={className}
+        className={className + " font-weight-bold"}
       >
         {text}
       </Button>
@@ -36,7 +36,13 @@ function SubscribeButton({ text, className }) {
           noValidate
           onSubmit={() => setShow(!show)}
         >
-          <Form.Label htmlFor="mce-EMAIL" className="d-none" visuallyHidden>Email</Form.Label>
+          <Form.Label
+            htmlFor="mce-EMAIL"
+            className="d-none"
+            visuallyHidden
+          >
+            Email
+          </Form.Label>
           <Form.Control
             type="email"
             name="EMAIL"
@@ -48,12 +54,27 @@ function SubscribeButton({ text, className }) {
           />
           {/*prevent bot signups*/}
           <div style={{position: "absolute", left: -5000, ariaHidden: true}}>
-            <Form.Control type="text" name="b_626abcd702a19dae66e0ec0f5_2c3a2cbe64" tabIndex="-1" />
+            <Form.Control
+              type="text"
+              name="b_626abcd702a19dae66e0ec0f5_2c3a2cbe64"
+              tabIndex="-1"
+            />
           </div>
-          <Button type="submit" name="subscribe" variant="dark" id="mc-embedded-subscribe">
+          <Button
+            type="submit"
+            name="subscribe"
+            variant="danger"
+            className="font-weight-bold"
+            id="mc-embedded-subscribe"
+          >
             Subscribe
           </Button>
         </Form>
+        <p className="text-dark text-center mb-1">
+          <small>
+            You can instead subscribe via <a href="/rss.xml">RSS</a> elsewhere
+          </small>
+        </p>
       </Modal>
     </>
   )
