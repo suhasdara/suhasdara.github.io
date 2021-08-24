@@ -5,17 +5,20 @@ import PropTypes from "prop-types";
 
 import ModalImage from "./modalImage";
 
-function Content({ children }) {
+function Content({ children, className }) {
   return (
-    <MDXProvider
-      components={{
-        img: props => <ModalImage {...props} height={props.style.height} />,
-      }}
-    >
-      <MDXRenderer>
-        {children}
-      </MDXRenderer>
-    </MDXProvider>
+    <div className={className}>
+      <MDXProvider
+        components={{
+          img: props => <ModalImage {...props} height={props.style.height} />,
+          a: props => <a {...props} rel="noopener noreferrer" target="_blank" />,
+        }}
+      >
+        <MDXRenderer>
+          {children}
+        </MDXRenderer>
+      </MDXProvider>
+    </div>
   );
 }
 

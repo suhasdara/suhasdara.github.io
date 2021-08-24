@@ -205,7 +205,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
   }
   legend {
     box-sizing: border-box;
@@ -290,7 +290,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
     color: inherit;
     font-weight: bold;
     text-rendering: optimizeLegibility;
@@ -305,7 +305,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
     color: inherit;
     font-weight: bold;
     text-rendering: optimizeLegibility;
@@ -320,7 +320,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
     color: inherit;
     font-weight: bold;
     text-rendering: optimizeLegibility;
@@ -335,7 +335,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
   }
   ul {
     margin-left: 1.45rem;
@@ -345,7 +345,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
     list-style-position: outside;
     list-style-image: none;
   }
@@ -357,7 +357,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
     list-style-position: outside;
     list-style-image: none;
   }
@@ -369,7 +369,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
   }
   dd {
     margin-left: 0;
@@ -379,7 +379,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
   }
   p {
     margin-left: 0;
@@ -389,13 +389,13 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
   }
   pre {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
     font-size: 0.85rem;
     line-height: 1.42;
     background: hsla(0, 0%, 0%, 0.04);
@@ -436,7 +436,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
   }
   noscript {
     margin-left: 0;
@@ -446,7 +446,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
   }
   iframe {
     margin-left: 0;
@@ -466,7 +466,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 1rem;
   }
   b {
     font-weight: bold;

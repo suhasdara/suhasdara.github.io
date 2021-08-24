@@ -28,6 +28,8 @@ const Media = ({ icon, link }) => (
 
 const IndexPage = () => {
   const [disabledAbout, setDisabledAbout] = useState(true);
+  const mailto = "mailto:Suhas%20Dara%3csuhasdara@utexas.edu%3e?" +
+    "subject=The%20Suhas%20Space%20(subject)"
 
   return (
     <Layout hideFooter={true}>
@@ -63,7 +65,7 @@ const IndexPage = () => {
             </Row>
             <Row>
               <Col xs="12" className="d-inline-flex justify-content-center">
-                <Media icon={faEnvelope} link="mailto:suhasdara01@gmail.com" />
+                <Media icon={faEnvelope} link={mailto} />
                 <Media
                   icon={faLinkedin}
                   link="https://www.linkedin.com/in/suhas-dara"
