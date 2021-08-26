@@ -20,8 +20,8 @@ postType: experience
 image: featured.png
 ---
 
-Because Two Sigma is a high security finance company, I unfortunately cannot
-share much about the work that I did as part of my internship.
+Unfortunately, I cannot share much about the work that I did as part of my
+internship because Two Sigma is a high security finance company.
 
 Every FinTech company has financial simulations, that is an open secret. I
 worked on a project to measure the robustness and precision of the financial
