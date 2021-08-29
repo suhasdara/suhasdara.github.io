@@ -2,6 +2,8 @@
 title: FedEx + Customs = Nightmare
 date: 2021-08-21
 slug: /blogs/fedex-nightmare
+tags:
+  - life
 postType: blog
 ---
 

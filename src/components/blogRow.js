@@ -14,7 +14,7 @@ function BlogRow({ title, date, timeToRead, excerpt, link }) {
   });
 
   return (
-    <Row className="py-2">
+    <Row className="py-3">
       <Col>
         <Row>
           <Col

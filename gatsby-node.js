@@ -25,16 +25,17 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 };
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const projectTemplate = path.resolve("src/templates/projectTemp.js");
   const experienceTemplate = path.resolve("src/templates/experienceTemp.js");
   const blogTemplate = path.resolve("src/templates/blogTemp.js");
+  const blogsTagTemplate = path.resolve("src/templates/blogTagPageTemp.js");
 
-  return graphql(`
+  const result = await graphql(`
     query ContentIndexQuery {
-      allMdx {
+      posts: allMdx {
         edges {
           node {
             frontmatter {
@@ -44,30 +45,50 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
-    }
-  `).then((res) => {
-    if (res.errors) {
-      return Promise.reject(res.errors);
-    }
-    res.data.allMdx.edges.forEach(({ node }) => {
-      if (node.frontmatter.postType === "project") {
-        createPage({
-          path: node.frontmatter.slug,
-          component: projectTemplate,
-        });
-      } else if (node.frontmatter.postType === "experience") {
-        createPage({
-          path: node.frontmatter.slug,
-          component: experienceTemplate,
-        });
-      } else if (node.frontmatter.postType === "blog") {
-        createPage({
-          path: node.frontmatter.slug,
-          component: blogTemplate,
-        });
-      } else {
-        return Promise.reject("Invalid frontmatter posttype");
+      tags: allMdx {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
       }
-    });
+    }
+  `)
+
+  if(result.errors) {
+    return;
+  }
+
+  const posts = result.data.posts.edges;
+
+  posts.forEach(({ node }) => {
+    if (node.frontmatter.postType === "project") {
+      createPage({
+        path: node.frontmatter.slug,
+        component: projectTemplate,
+      });
+    } else if (node.frontmatter.postType === "experience") {
+      createPage({
+        path: node.frontmatter.slug,
+        component: experienceTemplate,
+      });
+    } else if (node.frontmatter.postType === "blog") {
+      createPage({
+        path: node.frontmatter.slug,
+        component: blogTemplate,
+      });
+    } else {
+      return Promise.reject("Invalid frontmatter posttype");
+    }
+  });
+
+  const tags = result.data.tags.group;
+
+  tags.forEach(tag => {
+    createPage({
+      path: `/blogs=${tag.fieldValue}/`,
+      component: blogsTagTemplate,
+      context: {
+        tag: tag.fieldValue,
+      },
+    })
   });
 };

@@ -11,7 +11,7 @@ export default function ExperienceTemplate({ data }) {
   const experience = data.mdx;
 
   return (
-    <Layout backLink="/experience">
+    <Layout backLink="/experience/">
       <SEO title={experience.frontmatter.title} />
       <div className="pt-md-5 pt-3">
         <h1 className="text-light mb-3">{experience.frontmatter.title}</h1>

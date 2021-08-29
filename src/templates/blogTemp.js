@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -16,11 +16,27 @@ export default function BlogTemplate({ data }) {
   let timeToRead = Math.ceil(blog.timeToRead * 1.25) //I'm a slow reader
 
   return (
-    <Layout backLink="/blogs">
+    <Layout backLink="/blogs/">
       <SEO title={blog.frontmatter.title} />
       <div className="pt-md-5 pt-3">
         <h1 className="text-light mb-3">{blog.frontmatter.title}</h1>
         <h4 className="text-muted mb-3">
+          <p className="d-flex flex-wrap align-items-center mb-1">
+            Tags:&nbsp;
+            {blog.frontmatter.tags.map((t, i) => (
+              <span key={i}>
+                <Link
+                  key={i}
+                  to={`/blogs=${t}/`}
+                >
+                  {t[0].toUpperCase() + t.slice(1)}
+                </Link>
+                {i !== blog.frontmatter.tags.length - 1 && (
+                  <>,&nbsp;</>
+                )}
+              </span>
+            ))}
+          </p>
           <p className="my-0">
             <span className="d-inline-block">{date}</span>
           </p>
@@ -34,7 +50,7 @@ export default function BlogTemplate({ data }) {
   );
 }
 
-export const projectQuery = graphql`
+export const blogQuery = graphql`
   query BlogBySlug($path: String!) {
     mdx(frontmatter: { slug: { eq: $path } }) {
       body
@@ -42,6 +58,7 @@ export const projectQuery = graphql`
       frontmatter {
         title
         date
+        tags
         slug
       }
     }

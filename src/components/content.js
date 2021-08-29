@@ -4,6 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import PropTypes from "prop-types";
 
 import ModalImage from "./modalImage";
+import MarkdownLink from "./markdownLink";
 
 function Content({ children, className }) {
   return (
@@ -11,7 +12,7 @@ function Content({ children, className }) {
       <MDXProvider
         components={{
           img: props => <ModalImage {...props} height={props.style.height} />,
-          a: props => <a {...props} rel="noopener noreferrer" target="_blank" />,
+          a: props => <MarkdownLink {...props} />,
         }}
       >
         <MDXRenderer>
@@ -23,11 +24,11 @@ function Content({ children, className }) {
 }
 
 Content.defaultProps = {
-  onlyExcerpt: false,
+  className: "",
 };
 
 Content.propTypes = {
-  onlyExcerpt: PropTypes.bool,
+  className: PropTypes.string,
   children: PropTypes.any.isRequired,
 }
 

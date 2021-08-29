@@ -21,22 +21,22 @@ const Header = ({ active }) => {
       <Navbar.Collapse id="navbarResponsive" className="bg-light">
         <Nav activeKey={active}>
           <Nav.Item className="py-1 px-3 px-md-1">
-            <Nav.Link eventKey="about" as={Link} to="/about">
+            <Nav.Link eventKey="about" as={Link} to="/about/">
               About
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className="py-1 px-3 px-md-1">
-            <Nav.Link eventKey="projects" as={Link} to="/projects">
+            <Nav.Link eventKey="projects" as={Link} to="/projects/">
               Projects
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className="py-1 px-3 px-md-1">
-            <Nav.Link eventKey="experience" as={Link} to="/experience">
+            <Nav.Link eventKey="experience" as={Link} to="/experience/">
               Experience
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className="py-1 px-3 px-md-1">
-            <Nav.Link eventKey="blogs" as={Link} to="/blogs">
+            <Nav.Link eventKey="blogs" as={Link} to="/blogs/">
               Blogs
             </Nav.Link>
           </Nav.Item>

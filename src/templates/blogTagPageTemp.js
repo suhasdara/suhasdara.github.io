@@ -3,17 +3,17 @@ import { graphql } from "gatsby";
 
 import BlogList from "../components/blogList";
 
-export default function BlogPage({ data }) {
+export default function BlogTagPageTemp({ data }) {
   return (
     <BlogList data={data} />
   );
 }
 
-export const blogsQuery = graphql`
-  query BlogsIndexQuery {
+export const blogsTagQuery = graphql`
+  query BlogsByTagIndexQuery($tag: String!) {
     posts: allMdx(
       sort: { order: DESC, fields: frontmatter___date }
-      filter: { frontmatter: { postType: { eq: "blog" } } }
+      filter: { frontmatter: { postType: { eq: "blog" }, tags: { in: [$tag] } } } 
     ) {
       edges {
         node {
