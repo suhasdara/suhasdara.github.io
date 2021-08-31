@@ -15,17 +15,19 @@ export default function MarkdownCodeBlock({children, className}) {
     <Highlight {...defaultProps} code={children} language={language}>
       {({className, style, tokens, getLineProps, getTokenProps}) => (
         <>
-          <div className="code-language-bar d-inline-block mb-0 mr-1 px-1">
-            <span>{language}</span>
-          </div>
-          <pre className={className + " d-flex flex-column"} style={{...style}}>
+          <div className="bar-above-pre d-flex">
+            <div className="code-language-bar d-inline-block mb-0 mr-1 px-1">
+              <span>{language}</span>
+            </div>
             <Button
               variant="dark"
-              className="copy-button ml-auto py-0 px-1"
+              className="copy-button d-inline-block ml-auto mb-1 py-0 px-1"
               onClick={() => {navigator.clipboard.writeText(children)}}
             >
               Copy <FontAwesomeIcon icon={faCopy} />
             </Button>
+          </div>
+          <pre className={className + " d-flex flex-column"} style={{...style}}>
             {tokens.map((line, i) => {
               return i !== tokens.length - 1 ?
                 (
