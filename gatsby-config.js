@@ -30,12 +30,23 @@ module.exports = {
           {
             serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
+                // allow multi line, properly spaced code blocks in the RSS feed
+                let html = edge.node.html.replace(
+                  /<pre><code.*?>[\s\S]*?<\/code><\/pre>/g,
+                  (x) => {
+                    let s = JSON.stringify(x)
+                      .replace(/\\n/g, "&#13;&#10;")
+                      .replace(/ /g, "&nbsp;");
+                    return s.substring(1, s.length - 1);
+                  }
+                );
+
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.fields.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{ "content:encoded": html }],
                 });
               });
             },
