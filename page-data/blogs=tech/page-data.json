@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-tag-page-temp-js",
+    "path": "/blogs=tech/",
+    "result": {"data":{"posts":{"edges":[{"node":{"id":"5bea58d2-bb49-538a-9c47-a92b2314cfec","timeToRead":2,"fields":{"excerpt_html":"Learn how to generate excerpts with <code>gatsby-transformer-remark</code> and work\naround the lack of the <code>excerpt_separator</code> option in <code>gatsby-plugin-mdx</code>."},"frontmatter":{"title":"Generating excerpts using GatsbyJS Markdown plugins","slug":"/blogs/gatsby-mdx-excerpts","date":"2021-08-31T00:00:00.000Z"}}}]},"tags":{"group":[{"fieldValue":"life","totalCount":1},{"fieldValue":"tech","totalCount":1}]}},"pageContext":{"tag":"tech"}},
+    "staticQueryHashes": ["63159454"]}
