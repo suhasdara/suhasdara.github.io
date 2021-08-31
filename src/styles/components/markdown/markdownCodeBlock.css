@@ -1,0 +1,21 @@
+.code-language-bar {
+  font-size: 0.7em;
+  background: orange;
+  color: black;
+  border-radius: 3px 3px 0 0;
+}
+
+.code-language-bar ~ pre {
+  border-radius: 0 0 3px 3px;
+}
+
+.copy-button {
+  font-size: 0.7em;
+  border-radius: 3px;
+}
+
+.copy-button:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: #343a40;
+}
