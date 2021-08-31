@@ -36,7 +36,7 @@ function BlogRow({ title, date, timeToRead, excerpt, link }) {
           <Col className="d-flex flex-column justify-content-center px-0">
             <h6 className="my-0 font-weight-normal">
               <strong><em>{timeToRead} min. read: </em></strong>
-              {excerpt}&nbsp;
+              <span dangerouslySetInnerHTML={{__html:excerpt}} />&nbsp;
               <Link to={link}>Read more</Link>
             </h6>
           </Col>

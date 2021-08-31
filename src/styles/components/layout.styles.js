@@ -129,8 +129,9 @@ export const GlobalStyle = createGlobalStyle`
   kbd,
   pre,
   samp {
-    font-family: monospace;
-    font-size: 1em;
+    //font-family: monospace;
+    font-family: inherit;
+    font-size: inherit;
   }
   figure {
     margin-left: 0;
@@ -396,13 +397,14 @@ export const GlobalStyle = createGlobalStyle`
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 1rem;
-    font-size: 0.85rem;
+    font-size: inherit;
     line-height: 1.42;
-    background: hsla(0, 0%, 0%, 0.04);
+    background: hsla(50, 10%, 10%, 0.4);
+    color: #e83e8c;
     border-radius: 3px;
     overflow: auto;
     word-wrap: normal;
-    padding: 1.45rem;
+    padding: 0.5rem;
   }
   table {
     margin-left: 0;
@@ -512,8 +514,8 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: calc(1.45rem / 2);
   }
   code {
-    font-size: 0.85rem;
-    line-height: 1.45rem;
+    font-size: inherit;
+    //line-height: 1.45rem;
   }
   kbd {
     font-size: 0.85rem;
@@ -557,25 +559,27 @@ export const GlobalStyle = createGlobalStyle`
   }
   tt,
   code {
-    background-color: hsla(0, 0%, 0%, 0.04);
+    background: hsla(50, 10%, 10%, 0.4);
+    color: #e83e8c;
     border-radius: 3px;
-    font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
-      "Liberation Mono", Menlo, Courier, monospace;
+    //font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
+    //  "Liberation Mono", Menlo, Courier, monospace;
+    font-family: inherit;
     padding: 0;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
+    //padding-top: 0.2em;
+    //padding-bottom: 0.2em;
   }
   pre code {
     background: none;
     line-height: 1.42;
   }
-  code:before,
-  code:after,
-  tt:before,
-  tt:after {
-    letter-spacing: -0.2em;
-    content: " ";
-  }
+  //code:before,
+  //code:after,
+  //tt:before,
+  //tt:after {
+  //  letter-spacing: -0.2em;
+  //  content: " ";
+  //}
   pre code:before,
   pre code:after,
   pre tt:before,

@@ -60,7 +60,7 @@ export default function BlogList({ data }) {
               title={project.node.frontmatter.title}
               date={project.node.frontmatter.date}
               link={project.node.frontmatter.slug}
-              excerpt={project.node.fields.excerpt}
+              excerpt={project.node.fields.excerpt_html}
               timeToRead={Math.ceil(project.node.timeToRead * 1.25)} //I'm a slow reader
             />
           ))}

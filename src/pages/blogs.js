@@ -20,7 +20,7 @@ export const blogsQuery = graphql`
           id
           timeToRead
           fields {
-            excerpt
+            excerpt_html
           }
           frontmatter {
             title

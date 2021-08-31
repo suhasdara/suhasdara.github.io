@@ -1,4 +1,5 @@
 const path = require("path");
+const showdown = require("showdown");
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -17,10 +18,20 @@ exports.onCreateNode = ({ node, actions }) => {
     let excerpt = content.substring(fmEnd, excerptEnd) + ellipsis;
     excerpt = excerpt.trim();
 
+    let converter = new showdown.Converter();
+    let excerpt_html = converter.makeHtml(excerpt);
+    //remove para opening and end. WARNING: breaks multi para excerpts
+    excerpt_html = excerpt_html.substring(3, excerpt_html.length - 4);
+
     createNodeField({
       node,
       name: `excerpt`,
       value: excerpt,
+    });
+    createNodeField({
+      node,
+      name: `excerpt_html`,
+      value: excerpt_html,
     });
   }
 };

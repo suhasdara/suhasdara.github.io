@@ -17,7 +17,10 @@ export default function BlogTemplate({ data }) {
 
   return (
     <Layout backLink="/blogs/">
-      <SEO title={blog.frontmatter.title} />
+      <SEO
+        title={blog.frontmatter.title}
+        description={blog.fields.excerpt}
+      />
       <div className="pt-md-5 pt-3">
         <h1 className="text-light mb-3">{blog.frontmatter.title}</h1>
         <h4 className="text-muted mb-3">
@@ -55,6 +58,9 @@ export const blogQuery = graphql`
     mdx(frontmatter: { slug: { eq: $path } }) {
       body
       timeToRead
+      fields {
+        excerpt
+      }
       frontmatter {
         title
         date
