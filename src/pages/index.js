@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -27,7 +27,6 @@ const Media = ({ icon, link }) => (
 );
 
 const IndexPage = () => {
-  const [disabledAbout, setDisabledAbout] = useState(true);
   const mailto = "mailto:Suhas%20Dara%3csuhasdara@utexas.edu%3e?" +
     "subject=The%20Suhas%20Space%20(subject)"
 
@@ -36,7 +35,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Container className="pt-2 my-auto">
         <Row>
-          <Col lg="6" className="d-inline-flex justify-content-center">
+          <Col xl="5" lg="6" className="d-inline-flex justify-content-center">
             <img
               id="brand-img"
               src={Logo}
@@ -45,7 +44,7 @@ const IndexPage = () => {
             />
           </Col>
           <Col
-            lg="6"
+            xl="4" lg="3"
             className="d-inline-flex justify-content-center flex-column"
           >
             <Row>
@@ -53,7 +52,7 @@ const IndexPage = () => {
                 <img
                   id="author-img"
                   src={Suhas}
-                  height={250}
+                  height={240}
                   alt="Suhas Dara"
                 />
               </Col>
@@ -77,16 +76,29 @@ const IndexPage = () => {
               </Col>
             </Row>
           </Col>
+          <Col
+            lg="3"
+            className="d-inline-flex justify-content-center flex-column mt-lg-0 mt-2"
+          >
+            <Row>
+              <p className="text-light text-lg-right text-center mb-1">
+                Hi there! I recently graduated from The University of Texas at
+                Austin with a BS in Computer Science. I am striving to find what
+                interests me best in the vast field that is Computer Science. I
+                want to share my experiences and learning through writing blogs.
+                So, do subscribe to them below!
+              </p>
+              <p
+                className="text-light text-lg-right text-center"
+                style={{width: "100%"}}
+              >
+                Read more about me <Link to="/about/">here</Link>
+              </p>
+            </Row>
+          </Col>
         </Row>
         <Row>
           <Col xs="12" className="d-inline-flex justify-content-center">
-            <Button
-              variant="light"
-              onClick={() => setDisabledAbout(!disabledAbout)}
-              className="p-2 m-2 det-btn"
-            >
-              A little introduction?
-            </Button>
             <a
               href="/suhasdara_resume.pdf"
               rel="noopener noreferrer"
@@ -97,21 +109,9 @@ const IndexPage = () => {
                 <FontAwesomeIcon icon={faDownload} /> Download Resume
               </Button>
             </a>
-            <SubscribeButton text="Subscribe to blogs" className="p-2 m-2 det-btn" />
+            <SubscribeButton text="Subscribe to my blogs" className="p-2 m-2 det-btn" />
           </Col>
         </Row>
-        {!disabledAbout && (
-          <Row>
-            <p className="mt-2 text-light">
-              Hi there! I recently graduated from The University of Texas at
-              Austin with a BS in Computer Science. I decided to put my skills
-              in web development to the test by creating this website. I am
-              striving to find what interests me best in Computer Science: it is
-              data science, machine learning, and deep learning, as it stands.
-              <Link to="/about"> Want to know more?</Link>
-            </p>
-          </Row>
-        )}
       </Container>
     </Layout>
   );

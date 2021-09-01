@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/ModalHeader";
 
+import "../styles/components/subscribeButton.css";
+
 function SubscribeButton({ text, className }) {
   const [show, setShow] = useState(false);
 
   return (
     <>
       <Button
-        variant="danger"
         onClick={() => setShow(!show)}
-        className={className + " font-weight-bold"}
+        className={className + " font-weight-bold text-white subscribe"}
       >
         {text}
       </Button>

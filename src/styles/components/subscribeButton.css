@@ -1,0 +1,18 @@
+button.subscribe {
+  animation: blink 3s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    background-color: #ec3545;
+    border-color: darkgrey;
+  }
+  50% {
+    background-color: #dc1535;
+    border-color: darkslategrey;
+  }
+  100% {
+    background-color: #ec3545;
+    border-color: darkgrey;
+  }
+}
