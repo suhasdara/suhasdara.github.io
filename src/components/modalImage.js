@@ -44,7 +44,9 @@ function ModalImage(props) {
             <h4 className="bg-light text-dark mb-0">{title}</h4>
           </Modal.Header>
         )}
-        <img src={modalSrc} alt={alt} />
+        <a href={modalSrc} target="_blank" rel="noreferrer noopener">
+          <img src={modalSrc} alt={alt} />
+        </a>
       </Modal>
     </>
   );
