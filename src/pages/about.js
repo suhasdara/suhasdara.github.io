@@ -8,7 +8,7 @@ import ModalImage from "../components/modalImage";
 import Games from "../../content/images/about/games.jpg";
 import Youtube from "../../content/images/about/youtube.jpg";
 import Reddit from "../../content/images/about/reddit.jpg";
-import Piano from "../../content/images/about/piano.png";
+import Piano from "../../content/images/about/piano.jpg";
 import Hiking from "../../content/images/about/hiking.jpg";
 
 const MediaRow = ({ media, mediaAlt, mediaHeight, rowNum, children }) => {
