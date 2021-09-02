@@ -3,7 +3,7 @@ import { Badge } from "react-bootstrap";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import DateRange from "../components/dateRange";
 import ModalImage from "../components/modalImage";
 import Content from "../components/content";
@@ -13,7 +13,10 @@ export default function ProjectTemplate({ data }) {
 
   return (
     <Layout backLink="/projects/">
-      <SEO title={project.frontmatter.title} />
+      <Seo
+        title={project.frontmatter.title}
+        description={project.fields.excerpt}
+      />
       <div className="pt-md-5 pt-3">
         <h1 className="text-light mb-3">{project.frontmatter.title}</h1>
         <h4 className="text-muted mb-3">
@@ -116,6 +119,9 @@ export const projectQuery = graphql`
   query ProjectBySlug($path: String!) {
     mdx(frontmatter: { slug: { eq: $path } }) {
       body
+      fields {
+        excerpt
+      }
       frontmatter {
         title
         startDates

@@ -3,19 +3,26 @@ import { Badge, Col, Container, Row } from "react-bootstrap";
 import { Link } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import BlogRow from "../components/blogRow";
 import SubscribeButton from "../components/subscribeButton";
 
-export default function BlogList({ data }) {
+export default function BlogList({ data, category }) {
   const blogs = data.posts.edges;
   const tags = data.tags.group;
   let totalBlogs = 0;
   data.tags.group.forEach((item) => totalBlogs += item.totalCount);
 
+  let title, description;
+  if(category === undefined) {
+    title = "Blogs"; description = "All blogs of Suhas Dara";
+  } else {
+    title = `${category} Blogs`; description = `${category} blogs of Suhas Dara`;
+  }
+
   return (
     <Layout active="blogs">
-      <SEO title="Blogs" />
+      <Seo title={title} description={description} />
       <div className="pt-5">
         <Container>
           <Row className="pb-1">

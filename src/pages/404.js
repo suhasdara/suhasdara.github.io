@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 
 const NotFoundPage = () => {
   return (
     <Layout hideFooter={true}>
-      <SEO title="404: Not found" />
+      <Seo title="404: Not found" description="Page does not exist" />
       <div className="pt-2 my-auto">
         <h1 className="mb-5 text-center">Page not found</h1>
         <h3 className="text-center">

@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import ExperienceRow from "../components/experienceRow";
 
 export default function ExperiencePage({ data }) {
@@ -11,7 +11,7 @@ export default function ExperiencePage({ data }) {
 
   return (
     <Layout active="experience">
-      <SEO title="Experience" />
+      <Seo title="Experience" description="Suhas Dara's professional experience" />
       <div className="pt-5">
         <h1 className="text-center text-light">Experience</h1>
         <Container className="pt-3">

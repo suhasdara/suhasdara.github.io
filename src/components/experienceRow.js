@@ -3,8 +3,9 @@ import { Row, Col } from "react-bootstrap";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 
-import "../styles/components/experienceRow.css";
 import DateRange from "./dateRange";
+
+import "../styles/components/experienceRow.css";
 
 function ExperienceRow({ title, company, imgSrc, startDates, endDates, link }) {
   return (

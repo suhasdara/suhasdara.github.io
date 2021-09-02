@@ -7,7 +7,7 @@ import { Link } from "gatsby";
 
 import "../styles/pages/index.css";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import SubscribeButton from "../components/subscribeButton";
 
 import Logo from "../../content/images/icon.png";
@@ -29,10 +29,11 @@ const Media = ({ icon, link }) => (
 const IndexPage = () => {
   const mailto = "mailto:Suhas%20Dara%3csuhasdara@utexas.edu%3e?" +
     "subject=The%20Suhas%20Space%20(subject)"
+  console.log("Hi there! What are you trying to do?"); //For the cheeky folks
 
   return (
     <Layout hideFooter={true}>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <Container className="pt-2 my-auto">
         <Row>
           <Col xl="5" lg="6" className="d-inline-flex justify-content-center">

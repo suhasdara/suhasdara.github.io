@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import ModalImage from "../components/modalImage";
 
 import Games from "../../content/images/about/games.jpg";
@@ -42,7 +42,7 @@ const MediaRow = ({ media, mediaAlt, mediaHeight, rowNum, children }) => {
 const AboutPage = () => {
   return (
     <Layout active="about">
-      <SEO title="About Me" />
+      <Seo title="About Me" description="About Suhas Dara" />
       <h1 className="text-center text-light pt-5">About Me</h1>
       <Container>
         <Row>

@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-import { GlobalStyle } from "../styles/components/layout.styles";
-import "../styles/components/layout.css";
 import Header from "./header";
 import Footer from "./footer";
-import {Link} from "gatsby";
+
+import { GlobalStyle } from "../styles/components/layout.styles";
+import "../styles/components/layout.css";
 
 function Layout({ children, active, backLink, hideFooter }) {
   return (

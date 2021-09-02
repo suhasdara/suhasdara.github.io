@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import ModalHeader from "react-bootstrap/ModalHeader";
 
 import "../styles/components/subscribeButton.css";
 
@@ -21,12 +20,12 @@ function SubscribeButton({ text, className }) {
         onHide={() => setShow(!show)}
         dialogClassName="modal-subscribe"
       >
-        <ModalHeader
+        <Modal.Header
           className="bg-light d-flex align-items-center"
           closeButton
         >
           <h4 className="bg-light text-dark mb-0">Subscribe to new blog posts</h4>
-        </ModalHeader>
+        </Modal.Header>
         <Form
           action="https://gmail.us5.list-manage.com/subscribe/post?u=626abcd702a19dae66e0ec0f5&amp;id=2c3a2cbe64"
           method="post"

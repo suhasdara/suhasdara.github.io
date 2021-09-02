@@ -3,9 +3,11 @@ import { graphql } from "gatsby";
 
 import BlogList from "../components/blogList";
 
-export default function BlogTagPageTemp({ data }) {
+export default function BlogTagPageTemp({ data, pageContext }) {
+  let tag = pageContext.tag;
+  let tagCapitalize = tag[0].toUpperCase() + tag.slice(1);
   return (
-    <BlogList data={data} />
+    <BlogList data={data} category={tagCapitalize} />
   );
 }
 

@@ -3,7 +3,7 @@ import { CardDeck } from "react-bootstrap";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import ProjectCard from "../components/projectCard";
 
 export default function ProjectsPage({ data }) {
@@ -11,7 +11,7 @@ export default function ProjectsPage({ data }) {
 
   return (
     <Layout active="projects">
-      <SEO title="Projects" />
+      <Seo title="Projects" description="Suhas Dara's projects" />
       <div className="pt-5">
         <h1 className="text-center text-light">Projects</h1>
         <CardDeck className="d-flex flex-row flex-wrap justify-content-center pt-3">

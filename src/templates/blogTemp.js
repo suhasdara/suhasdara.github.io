@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import Content from "../components/content";
 
 export default function BlogTemplate({ data }) {
@@ -17,7 +17,7 @@ export default function BlogTemplate({ data }) {
 
   return (
     <Layout backLink="/blogs/">
-      <SEO
+      <Seo
         title={blog.frontmatter.title}
         description={blog.fields.excerpt}
       />

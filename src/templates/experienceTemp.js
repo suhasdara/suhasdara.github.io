@@ -3,7 +3,7 @@ import { Badge } from "react-bootstrap";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import DateRange from "../components/dateRange";
 import Content from "../components/content";
 
@@ -12,7 +12,10 @@ export default function ExperienceTemplate({ data }) {
 
   return (
     <Layout backLink="/experience/">
-      <SEO title={experience.frontmatter.title} />
+      <Seo
+        title={experience.frontmatter.title}
+        description={experience.fields.excerpt}
+      />
       <div className="pt-md-5 pt-3">
         <h1 className="text-light mb-3">{experience.frontmatter.title}</h1>
         <h4 className="text-muted mb-3">
@@ -80,6 +83,9 @@ export const experienceQuery = graphql`
   query ExperienceBySlug($path: String!) {
     mdx(frontmatter: { slug: { eq: $path } }) {
       body
+      fields { 
+        excerpt
+      }
       frontmatter {
         title
         company
