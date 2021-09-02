@@ -58,14 +58,17 @@ are a few screen captures of the webapp:
 
 The form screen
 ![Form screen with simulation configurations](screenshots/form.png)
+
 The progress screen while running and after completion
 ![Ongoing progress screen](screenshots/progress.png)
 
 ![Progress completion screen](screenshots/progress-complete.png)
+
 The config and progress of a single simulator
 ![Config of a single simulator](screenshots/progress-config.png)
 
 ![Progress of a single simulator](screenshots/progress-status.png)
+
 The dashboard of graphs
 ![Dashboard screen displaying graphs](screenshots/dashboard.png)
 
