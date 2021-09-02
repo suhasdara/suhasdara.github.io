@@ -53,13 +53,28 @@ given time but everyone could access the progress and results live.
 
 The UI had a few different screens: a form to kick off load testing scripts,
 a display page that showed the test's progression, and a dashboard that
-displayed historic results through charts using highcharts.js. The webapp
-was designed to have long-term storage of results and also the initial form
-configurations using MongoDB. However, the webapp also had an "offline" mode
-when it was not connected to the database. This mode allowed starting load
-testing but without some functionality: saved form configurations could not
-be used, the results would not be saved to the database, and the dashboard to
-view historic charts could not be accessed.
+displayed historic results through charts using highcharts.js. The following
+are a few screen captures of the webapp:
+
+The form screen
+![Form screen with simulation configurations](screenshots/form.png)
+The progress screen while running and after completion
+![Ongoing progress screen](screenshots/progress.png)
+
+![Progress completion screen](screenshots/progress-complete.png)
+The config and progress of a single simulator
+![Config of a single simulator](screenshots/progress-config.png)
+
+![Progress of a single simulator](screenshots/progress-status.png)
+The dashboard of graphs
+![Dashboard screen displaying graphs](screenshots/dashboard.png)
+
+The webapp was designed to have long-term storage of results and also the
+initial form configurations using MongoDB. However, the webapp also had an
+"offline" mode when it was not connected to the database. This mode allowed
+starting load testing but without some functionality: saved form
+configurations could not be used, the results would not be saved to the
+database, and the dashboard to view historic charts could not be accessed.
 
 While developing a system to receive data in the server and propagate it
 to the UI, I hit a dependency roadblock of designing and implementing a
