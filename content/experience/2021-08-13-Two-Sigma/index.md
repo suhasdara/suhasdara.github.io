@@ -29,7 +29,7 @@ simulations. I designed reports that display the results of the analyses
 performed on the financial simulations using Pandas, NumPy and Matplotlib
 for swift analysis and plot generation.
 
-The process was fully automated using internal tools and Jinja for
+The process was fully automated using internal tools, and Jinja was used for
 rendering the reports using HTML templating. The reports can be easily
 accessed by engineers and modelers at Two Sigma and can potentially have
 many use cases in the future.

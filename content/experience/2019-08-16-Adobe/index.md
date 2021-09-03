@@ -29,27 +29,27 @@ have an internal structure called _Targeting Trees_
 The problem I worked on was creating an Approval Workflow for publishing
 Experiences. Originally, there was no reviewing mechanism for publishing
 Experiences, which meant that it was possible for accidental or erroneous
-edits to an Experience get published live. By granting reviewer privileges
+edits to an Experience to get published live. By granting reviewer privileges
 to certain users of a client and adding a review phase to the publishing
 pipeline (called approval workflow), the number of faulty edits getting
 published could be minimized.
 
 There were two main parts to this problem: adding a review state to the
 workflow and creating API endpoints for comparing Targeting Trees. If edits
-are approved in the review state, they would get published, else it would
-revert to draft. Creating a comparison view of the old and new Targeting
-Trees was the larger problem to be tackled.
+are approved in the review state, they would get published, else the tree
+would revert to draft. However, creating a comparison view of the old and new
+Targeting Trees was the larger problem to be tackled.
 
 To create a comparison view of the trees, I had to create an algorithm that
 effectively merges the two trees and marks which nodes were newly created,
 which nodes were deleted, and which nodes were modified. This is a complex
 problem because nodes can be shifted to a different layer of the tree with
-the subtree intact, the heights of the trees may be different, the nodes'
-internal logic could be modified without the subtree changing, etc. The
-merging algorithm had a lot of design decisions to overcome before being
+an unmodified subtree, the heights of the trees may be different, a node's
+internal logic could be modified without its subtree changing, etc. The
+merging algorithm had a lot of design decisions to overcome before it was
 able to generate a relatively usable output.
 
-Additionally, for exposing and interface to use the comparison mechanism of
+Additionally, for exposing an interface to use the comparison mechanism of
 the targeting trees, I created new datatables in the MySQL database and
 designed new API endpoints in Springboot. Toward the end of the internship,
 with some extra time, I also implemented a publish-history tracking endpoint
