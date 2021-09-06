@@ -25,6 +25,13 @@ export default function ProjectTemplate({ data }) {
             endDates={project.frontmatter.endDates}
           />
         </h4>
+        {project.frontmatter.team && (
+          <div className="mb-1">
+            <p className="d-flex flex-wrap align-items-center mb-0">
+              Team members: {project.frontmatter.team.join(", ")}
+            </p>
+          </div>
+        )}
         {project.frontmatter.languages && (
           <div className="mb-1">
             <p className="d-flex flex-wrap align-items-center mb-0">
@@ -85,7 +92,13 @@ export default function ProjectTemplate({ data }) {
         {project.frontmatter.projectLink && (
           <div className="mb-1">
             <p className="mb-0">
-              <a href={project.frontmatter.projectLink}>View Live Website</a>
+              <a
+                href={project.frontmatter.projectLink}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                View Live Website
+              </a>
             </p>
           </div>
         )}
@@ -106,6 +119,7 @@ export default function ProjectTemplate({ data }) {
           <ModalImage
             src={project.frontmatter.image.childImageSharp.fluid.src}
             alt={project.frontmatter.title}
+            title={project.frontmatter.title}
             height={300}
           />
         </div>
@@ -126,6 +140,7 @@ export const projectQuery = graphql`
         title
         startDates
         endDates
+        team
         languages
         tools
         slug

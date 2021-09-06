@@ -4,6 +4,10 @@ startDates:
   - 2018-01-20
 endDates:
   - 2018-05-20
+team:
+  - Lucinda Nguyen
+  - Tracy Zhang
+  - Sadhvi Darisipudi
 languages:
   - C++
 tools:

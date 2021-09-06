@@ -4,6 +4,9 @@ startDates:
   - 2018-09-15
 endDates:
   - 2019-05-19
+team:
+  - Lucinda Nguyen
+  - Jamin Goo
 languages:
   - Python3
   - C++

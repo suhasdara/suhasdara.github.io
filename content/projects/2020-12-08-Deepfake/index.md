@@ -4,6 +4,8 @@ startDates:
   - 2020-10-27
 endDates:
   - 2020-12-08
+team:
+  - Aditya Tyagi
 languages:
   - Python3
 tools:
