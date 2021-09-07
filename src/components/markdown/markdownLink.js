@@ -6,7 +6,7 @@ export default function MarkdownLink(props) {
 
   return (
     <>
-      {href.startsWith("/") ? (
+      {href.startsWith("/") && !href.endsWith(".pdf") ? (
         <Link to={href} {...rest}>
           {children}
         </Link>

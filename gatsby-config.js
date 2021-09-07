@@ -1,3 +1,11 @@
+const remark_image_options = {
+  linkImagesToOriginal: false,
+  backgroundColor: `transparent`,
+  disableBgImage: true,
+  maxWidth: 500,
+  srcSetBreakpoints: [500],
+};
+
 module.exports = {
   siteMetadata: {
     title: `The Suhas Space`,
@@ -10,8 +18,11 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
-    `gatsby-remark-images`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-remark-images`,
+      options: remark_image_options,
+    },
     {
       resolve: `gatsby-plugin-feed-mdx`,
       options: {
@@ -97,12 +108,7 @@ module.exports = {
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
-            options: {
-              linkImagesToOriginal: false,
-              backgroundColor: `transparent`,
-              disableBgImage: true,
-              maxWidth: 400,
-            },
+            options: remark_image_options,
           },
         ],
       },
@@ -131,7 +137,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `experience`,
+        name: `blogs`,
         path: `${__dirname}/content/blogs`,
       },
     },

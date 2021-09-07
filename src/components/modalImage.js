@@ -12,8 +12,7 @@ function ModalImage(props) {
   let img_style, modalSrc
   if(Object.keys(rest).length !== 0) {
     img_style = { height: "auto", maxHeight: height, position: "absolute", top: "0px", left: "0px" };
-    let match = rest.srcSet.find(element => element.split(" ")[1] === "800w");
-    modalSrc = match ? match.split(" ")[0] : rest.srcSet[rest.srcSet.length - 1].split(" ")[0]
+    modalSrc = rest.srcSet[rest.srcSet.length - 1].split(" ")[0]
   } else {
     img_style = { height: "auto", maxHeight: height };
     modalSrc = src;

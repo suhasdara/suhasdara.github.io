@@ -483,7 +483,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: bold;
   }
   li {
-    margin-bottom: calc(1.45rem / 2);
+    margin-bottom: 0.5rem;
   }
   ol li {
     padding-left: 0;
