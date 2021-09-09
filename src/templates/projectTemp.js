@@ -28,14 +28,14 @@ export default function ProjectTemplate({ data }) {
         {project.frontmatter.team && (
           <div className="mb-1">
             <p className="d-flex flex-wrap align-items-center mb-0">
-              Team members: {project.frontmatter.team.join(", ")}
+              <strong>Team members:</strong>&nbsp;{project.frontmatter.team.join(", ")}
             </p>
           </div>
         )}
         {project.frontmatter.languages && (
           <div className="mb-1">
             <p className="d-flex flex-wrap align-items-center mb-0">
-              Languages used:&nbsp;
+              <strong>Languages used:</strong>&nbsp;
               {project.frontmatter.languages.map((l, i) => (
                 <span key={i}>
                   <Badge pill variant="light">
@@ -50,7 +50,7 @@ export default function ProjectTemplate({ data }) {
         {project.frontmatter.tools && (
           <div className="mb-1">
             <p className="d-flex flex-wrap align-items-center mb-0">
-              Tools used:&nbsp;
+              <strong>Tools used:</strong>&nbsp;
               {project.frontmatter.tools.map((t, i) => (
                 <span key={i}>
                   <Badge pill variant="light">

@@ -26,7 +26,7 @@ export default function ExperienceTemplate({ data }) {
         </h4>
         <div className="mb-1">
           <p className="d-flex align-items-center mb-0">
-            Company:&nbsp;
+            <strong>Company:</strong>&nbsp;
             <a
               href={experience.frontmatter.companyLink}
               rel="noopener noreferrer"
@@ -46,7 +46,7 @@ export default function ExperienceTemplate({ data }) {
         {experience.frontmatter.languages && (
           <div className="mb-1">
             <p className="d-flex flex-wrap align-items-center mb-0">
-              Languages used:&nbsp;
+              <strong>Languages used:</strong>&nbsp;
               {experience.frontmatter.languages.map((l, i) => (
                 <span key={i}>
                   <Badge pill variant="light">
@@ -61,7 +61,7 @@ export default function ExperienceTemplate({ data }) {
         {experience.frontmatter.tools && (
           <div className="mb-1">
             <p className="d-flex flex-wrap align-items-center mb-0">
-              Tools used:&nbsp;
+              <strong>Tools used:</strong>&nbsp;
               {experience.frontmatter.tools.map((t, i) => (
                 <span key={i}>
                   <Badge pill variant="light">
