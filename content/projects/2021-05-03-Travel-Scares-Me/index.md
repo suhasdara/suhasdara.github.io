@@ -40,7 +40,8 @@ final web product had to be designed to have some form of utility for the
 internet community.
 
 **The website will be live only until December 2021 at
-[https://www.travelscares.me](https://www.travelscares.me)**
+[https://www.travelscares.me](https://www.travelscares.me)
+(Note that the website is not optimized for mobile devices)**
 
 The project's development was separated into 5 phases:
 1. Planning and selection of data sources
