@@ -19,3 +19,9 @@
 div.bar-above-pre + pre {
   border-radius: 0 0 3px 3px;
 }
+
+pre div {
+  font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
+               "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.85rem;
+}

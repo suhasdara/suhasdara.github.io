@@ -72,7 +72,13 @@ function SubscribeButton({ text, className }) {
         </Form>
         <p className="text-dark text-center mb-1">
           <small>
-            You can instead subscribe via <a href="/rss.xml">RSS</a> elsewhere
+            Look out for emails from <strong>The Suhas Space</strong> in your
+            <strong> Promotions</strong> tab!
+          </small>
+        </p>
+        <p className="text-dark text-center mb-1">
+          <small>
+            Instead, you can also subscribe via <a href="/rss.xml">RSS</a> elsewhere
           </small>
         </p>
       </Modal>
