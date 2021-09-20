@@ -1,4 +1,123 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Suhas Space]]></title><description><![CDATA[Suhas Dara's personal website.]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 09 Sep 2021 06:11:48 GMT</lastBuildDate><item><title><![CDATA[Generating excerpts using GatsbyJS Markdown plugins]]></title><description><![CDATA[Learn how to generate excerpts with `gatsby-transformer-remark` and work
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Suhas Space]]></title><description><![CDATA[Suhas Dara's personal website.]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 20 Sep 2021 17:22:45 GMT</lastBuildDate><item><title><![CDATA[Understanding Strings in Python]]></title><description><![CDATA[Learn the differences between different string literals in Python and how
+escape characters work differently between them. Also understand the encoding
+and decoding functionality with Python strings.]]></description><link>https://suhasdara.me/blogs/python-strings</link><guid isPermaLink="false">https://suhasdara.me/blogs/python-strings</guid><pubDate>Mon, 20 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Learn the differences between different string literals in Python and how
+escape characters work differently between them. Also understand the encoding
+and decoding functionality with Python strings.&lt;/p&gt;&lt;p&gt;While working on a recent project, I was dealing with a lot of strings
+containing Unicode characters. For a long time I was trying to print the raw
+unicode codes for debugging purposes and went down a rabbit hole trying to
+understand the difference between raw strings, byte strings, encoding, decoding
+and a lot more. It was a little frustrating to be unable to figure out
+something seemingly simple. I want to demystify the experience that I had with strings
+in Python.&lt;/p&gt;&lt;p&gt;First let&amp;#x27;s get the basics out of the way... You can use either double quotes
+or single quotes to create strings in Python. You can also use triple quotes
+(&lt;code&gt;&amp;#x27;&amp;#x27;&amp;#x27;&lt;/code&gt; or &lt;code&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/code&gt;) to create multi-line strings.&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;s1&amp;nbsp;=&amp;nbsp;&amp;#x27;This&amp;nbsp;is&amp;nbsp;a&amp;nbsp;string&amp;#x27;&amp;#13;&amp;#10;s2&amp;nbsp;=&amp;nbsp;&amp;quot;This&amp;nbsp;is&amp;nbsp;also&amp;nbsp;a&amp;nbsp;string&amp;quot;&amp;#13;&amp;#10;m1&amp;nbsp;=&amp;nbsp;&amp;#x27;&amp;#x27;&amp;#x27;This&amp;nbsp;is&amp;nbsp;a&amp;#13;&amp;#10;multi&amp;nbsp;line&amp;nbsp;string&amp;#x27;&amp;#x27;&amp;#x27;&amp;#13;&amp;#10;m2&amp;nbsp;=&amp;nbsp;&amp;quot;&amp;quot;&amp;quot;This&amp;nbsp;is&amp;nbsp;also&amp;nbsp;a&amp;#13;&amp;#10;multi&amp;nbsp;line&amp;nbsp;string&amp;quot;&amp;quot;&amp;quot;&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Strings can have characters &amp;quot;escaped&amp;quot; out of the string using the backslash
+to represent some other entities. Common ones include &lt;code&gt;\n&lt;/code&gt; for representing
+a newline or &lt;code&gt;\t&lt;/code&gt; for representing a tab. To use the single quote inside a
+single-quote-string, you have to escape it with &lt;code&gt;\&amp;#x27;&lt;/code&gt; and similarly for using
+a double quote inside a double-quote-string, you have to escape it with &lt;code&gt;\&amp;quot;&lt;/code&gt;.
+To get a backslash itself within a string you have to escape it like &lt;code&gt;\\&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Sometimes, you may have a string with a lot of backslashes. Python has a
+way to reduce the clutter of escaped backslashes within strings backslashes.
+In Python, you can create raw strings, in which the backslash does not trigger
+an escape sequence and is treated as a normal character. This can be useful in
+certain situations such as dealing with paths on a Windows system. These raw
+strings are represented as &lt;code&gt;r&amp;quot;&amp;quot;&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;s1&amp;nbsp;=&amp;nbsp;&amp;quot;I\thave\tescape\tcharacters&amp;quot;&amp;#13;&amp;#10;print(s1)&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;I&amp;nbsp;&amp;nbsp;have&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;escape&amp;nbsp;&amp;nbsp;characters&amp;quot;&amp;#13;&amp;#10;s2&amp;nbsp;=&amp;nbsp;r&amp;quot;I\tdon&amp;#x27;t\thave\tescape\tcharacters&amp;quot;&amp;#13;&amp;#10;print(s2)&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;I\tdon&amp;#x27;t\thave\tescape\tcharacters&amp;quot;&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In Python 3.5, format strings were first introduced into Python. This allowed
+the string representations of variables to be directly injected into strings.
+Format strings are represented as &lt;code&gt;f&amp;quot;&amp;quot;&lt;/code&gt; and you can inject the value of any
+variable into the string using curly braces (and escape curly braces using
+&lt;code&gt;{{&lt;/code&gt; or &lt;code&gt;}}&lt;/code&gt;). Format strings can also be combined with raw strings to
+form raw format strings (&lt;code&gt;rf&amp;quot;&amp;quot;&lt;/code&gt;). For example:&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;age&amp;nbsp;=&amp;nbsp;20&amp;#13;&amp;#10;s&amp;nbsp;=&amp;nbsp;f&amp;quot;I&amp;nbsp;am&amp;nbsp;{age}&amp;nbsp;years&amp;nbsp;old&amp;quot;&amp;#13;&amp;#10;print(s)&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;I&amp;nbsp;am&amp;nbsp;20&amp;nbsp;years&amp;nbsp;old&amp;quot;&amp;#13;&amp;#10;s&amp;nbsp;=&amp;nbsp;rf&amp;quot;I&amp;nbsp;am&amp;nbsp;{{&amp;nbsp;{age}&amp;nbsp;}}&amp;nbsp;years&amp;nbsp;old&amp;nbsp;¯\_(ツ)_/¯&amp;quot;&amp;#13;&amp;#10;print(s)&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;I&amp;nbsp;am&amp;nbsp;{&amp;nbsp;20&amp;nbsp;}&amp;nbsp;years&amp;nbsp;old&amp;nbsp;¯\_(ツ)_/¯&amp;quot;&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But this is all basics that you already likely know. Let&amp;#x27;s move to the parts
+that can get confusing.&lt;/p&gt;&lt;p&gt;First, what exactly is a string? It is a &amp;quot;string&amp;quot; of characters you may say.
+But what is a character? In crude terms, a character is a single byte of
+information that represents something that humans can understand. The mapping
+that represents character to bytes conversion is an encoding format known as
+ASCII, which covers 128 different basic characters and escape characters. For
+now, let&amp;#x27;s assume that this is the only way characters can be encoded.&lt;/p&gt;&lt;p&gt;Every character in ASCII is represented by 8 bits of data, which is the binary
+representation of the character. For example, the character &amp;quot;K&amp;quot; in binary
+(base-2, the language of computers) is &lt;code&gt;01001011&lt;/code&gt;. Similarly, other number
+systems such as octal (base-8) or hexadecimal (base-16) can be used to
+represent binary more succinctly. For example, the equivalent for character
+&amp;quot;K&amp;quot; in octal is &lt;code&gt;0113&lt;/code&gt; and in hexadecimal is &lt;code&gt;0x4b&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Python allows you to write your strings using octal or hexadecimal to
+represent the characters. A byte (or 8 bits) of data can be represented by
+three digits of octal or two digits of hexadecimal. This is the reason Python
+has adopted the standard from C to allow three digit escape sequences of the
+sort &lt;code&gt;\ooo&lt;/code&gt; (where &lt;code&gt;o&lt;/code&gt; is a valid octal digit) to represent octal mappings,
+and two digit escape sequences of the sort &lt;code&gt;\xhh&lt;/code&gt; (where &lt;code&gt;h&lt;/code&gt; is a valid hex
+digit) to represent hex mappings.&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;a&amp;nbsp;=&amp;nbsp;&amp;quot;K&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;K&amp;#13;&amp;#10;o&amp;nbsp;=&amp;nbsp;&amp;quot;\113&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;also&amp;nbsp;K&amp;#13;&amp;#10;h&amp;nbsp;=&amp;nbsp;&amp;quot;\x4b&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;also&amp;nbsp;K&amp;#13;&amp;#10;print(a,&amp;nbsp;o,&amp;nbsp;h)&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;K&amp;nbsp;K&amp;nbsp;K&amp;quot;&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;However, with a growing web and inclusion of languages across the world and
+emoticons, a new character encoding standard called UTF-8 was proposed in
+1992. Here, we move from a single byte per character to using between one and
+four bytes per character. This is called a Unicode representation of a
+character, which is actually backwards compatible with ASCII. Every character
+you have ever come across on the Internet is likely to have been encoded with
+UTF-8.&lt;/p&gt;&lt;p&gt;The number of characters that can be encoded increased from 2&lt;sup&gt;8&lt;/sup&gt;
+(256) in ASCII to 2&lt;sup&gt;21&lt;/sup&gt; (2,097,152) in UTF-8. However, currently
+there are only 1,112,064 valid UTF-8 &amp;quot;codepoints&amp;quot;, which each translate to a
+different character. This means that the largest valid UTF-8 codepoint is
+currently &lt;code&gt;0x10ffff&lt;/code&gt;, though in the future it could be up to &lt;code&gt;0x1fffff&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;As an example, the character &amp;quot;€&amp;quot; has a codepoint of &lt;code&gt;0x20ac&lt;/code&gt;. This codepoint
+translates to the hexadecimal bytes &lt;code&gt;0xe2 0x82 0xac&lt;/code&gt;. As this translation from
+codepoint to bytes is not straightforward, to understand exactly how Unicode
+codepoints translate to their one to four byte representations, you can read
+more about the UTF-8 encoding
+&lt;a href=&quot;https://en.wikipedia.org/wiki/UTF-8#Encoding&quot;&gt;here&lt;/a&gt;. The UTF-8 encoding is
+backwards compatible with ASCII because any character with a UTF-8 codepoint
+below &lt;code&gt;0x7f&lt;/code&gt; (128) translates exactly into the same hexadecimal bytes.&lt;/p&gt;&lt;p&gt;In Python, you can include Unicode codepoints in strings using escape
+sequences similar to how you can include octal or hexadecimal representations
+of characters. To include any Unicode character below the codepoint &lt;code&gt;0xffff&lt;/code&gt;
+in a string, you can use escape sequences of the sort &lt;code&gt;\uhhhh&lt;/code&gt; (where &lt;code&gt;h&lt;/code&gt; is
+a valid hex digit and &lt;code&gt;hhhh&lt;/code&gt; is a codepoint). To include absolutely any
+Unicode character, you can use escape sequences of the sort &lt;code&gt;\Uhhhhhhhh&lt;/code&gt;
+instead. Bear in mind however, that even though the &lt;code&gt;\U&lt;/code&gt; escape sequence
+expects 8 hexadecimal characters, the largest codepoint that is supported
+without throwing an error is &lt;code&gt;\U0010ffff&lt;/code&gt; as explained above.&lt;/p&gt;&lt;p&gt;So, we can expand on our previous representations as follows:&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;u&amp;nbsp;=&amp;nbsp;&amp;quot;\u004b&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;also&amp;nbsp;K&amp;#13;&amp;#10;U&amp;nbsp;=&amp;nbsp;&amp;quot;\U0000004b&amp;quot;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;also&amp;nbsp;K&amp;#13;&amp;#10;print(u,&amp;nbsp;U)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;K&amp;nbsp;K&amp;quot;&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now based on what we&amp;#x27;ve learned, you may expect that the string
+&lt;code&gt;&amp;quot;\xe2\x82\xac&amp;quot;&lt;/code&gt; would convert to &lt;code&gt;&amp;quot;€&amp;quot;&lt;/code&gt; based on the UTF-8 encoding system.
+However, this is where things may get confusing because Python deals with
+byte representations included in strings on an individual byte basis. It uses
+the UTF-8 encoding on a per-byte basis instead of sets of bytes. A reason for
+this behavior is because there are encoding formats other than UTF-8, and it
+would be incorrect for Python to assume the encoding format of the bytes in
+the string. As an example try the following code, and you will see the
+unexpected results:&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;d&amp;nbsp;=&amp;nbsp;&amp;quot;€&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;a&amp;nbsp;€&amp;#13;&amp;#10;u&amp;nbsp;=&amp;nbsp;&amp;quot;\u20ac&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;also&amp;nbsp;a&amp;nbsp;€&amp;#13;&amp;#10;U&amp;nbsp;=&amp;nbsp;&amp;quot;\U000020ac&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;also&amp;nbsp;a&amp;nbsp;€&amp;#13;&amp;#10;b&amp;nbsp;=&amp;nbsp;&amp;quot;\xe2\x82\xac&amp;quot;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;NOT&amp;nbsp;a&amp;nbsp;€,&amp;nbsp;instead&amp;nbsp;is&amp;nbsp;â¬&amp;#13;&amp;#10;print(d,&amp;nbsp;u,&amp;nbsp;U,&amp;nbsp;b)&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;€&amp;nbsp;€&amp;nbsp;€&amp;nbsp;â¬&amp;quot;&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The bytes representation of &amp;quot;€&amp;quot; I mentioned earlier translates to &amp;quot;â¬&amp;quot; instead
+based on the individual byte translation pattern. &lt;code&gt;0xe2&lt;/code&gt; maps to &amp;quot;â&amp;quot;, &lt;code&gt;0x82&lt;/code&gt;
+is a non-printable character, and &lt;code&gt;0xac&lt;/code&gt; maps to &amp;quot;¬&amp;quot;. I will explain exactly
+why this happens in more detail towards the end.&lt;/p&gt;&lt;p&gt;This is where we need to separate the concept of strings from raw bytes in
+Python. Before moving forward, I would like to make the difference between
+&amp;quot;encoded&amp;quot; and &amp;quot;decoded&amp;quot; clear in terms of Python. In Python, encoding means
+converting a string of characters into the raw bytes that it represents based
+on an encoding scheme such as UTF-8. Similarly, decoding means converting raw
+bytes into a string of characters based on an encoding scheme. But what do
+these raw bytes look like?&lt;/p&gt;&lt;p&gt;Raw bytes are stored as something called byte literals. Byte literals
+look similar to strings in code, but the characters are instead auto-encoded
+into bytes using the UTF-8 encoding scheme on individual characters unless
+they are already encoded into bytes. Byte literals are represented using &lt;code&gt;b&amp;quot;&amp;quot;&lt;/code&gt;
+or &lt;code&gt;b&amp;#x27;&amp;#x27;&lt;/code&gt;. However, an important thing to note is that byte literals only allow
+for characters up to &lt;code&gt;0xff&lt;/code&gt;. This means that Unicode is not supported by byte
+literals and the &lt;code&gt;\u&lt;/code&gt; and &lt;code&gt;\U&lt;/code&gt; escapes do not work!(&lt;strong&gt;!!&lt;/strong&gt;).&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;d&amp;nbsp;=&amp;nbsp;b&amp;quot;€&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;does&amp;nbsp;not&amp;nbsp;work,&amp;nbsp;throws&amp;nbsp;an&amp;nbsp;error!&amp;#13;&amp;#10;u&amp;nbsp;=&amp;nbsp;b&amp;quot;\u20ac&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;works&amp;nbsp;like&amp;nbsp;a&amp;nbsp;&amp;quot;raw&amp;quot;&amp;nbsp;byte&amp;nbsp;literal&amp;nbsp;as&amp;nbsp;\u&amp;nbsp;is&amp;nbsp;unrecognized&amp;#13;&amp;#10;ru&amp;nbsp;=&amp;nbsp;rb&amp;quot;\u20ac&amp;quot;&amp;nbsp;&amp;nbsp;#&amp;nbsp;exactly&amp;nbsp;same&amp;nbsp;as&amp;nbsp;above&amp;#13;&amp;#10;print(u,&amp;nbsp;ru)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;b&amp;#x27;\\u20ac&amp;#x27;&amp;nbsp;b&amp;#x27;\\u20ac&amp;#x27;&amp;quot;&amp;nbsp;denoting&amp;nbsp;byte&amp;nbsp;literals&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Additionally, a string can be newly defined as a set of &lt;strong&gt;individual&lt;/strong&gt; bytes
+that are auto-decoded using the UTF-8 encoding scheme unless already decoded.
+Notice the use of the word &amp;quot;individual&amp;quot;. This individual byte behavior can be
+&amp;quot;escaped&amp;quot; using either &lt;code&gt;\u&lt;/code&gt; or &lt;code&gt;\U&lt;/code&gt; to induce two to four byte behavior and
+decode the rarer Unicode characters.&lt;/p&gt;&lt;p&gt;Now, byte literals can be decoded using any encoding format in which they form
+a valid sequence of bytes. When the bytes get decoded using an encoding
+format, they turn into a string. Similarly, a string can get encoded into byte
+literals using any encoding format. So now if we try to print a byte literal
+with the byte representation of the &amp;quot;€&amp;quot; character, you will notice it stays
+as bytes, until it is encoded using UTF-8.&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;b&amp;nbsp;=&amp;nbsp;b&amp;quot;\xe2\x82\xac&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;is&amp;nbsp;a&amp;nbsp;bytes&amp;nbsp;literal&amp;nbsp;representing&amp;nbsp;€&amp;nbsp;in&amp;nbsp;UTF-8&amp;#13;&amp;#10;print(type(b),&amp;nbsp;b)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;&amp;lt;class&amp;nbsp;&amp;#x27;bytes&amp;#x27;&amp;gt;&amp;nbsp;b&amp;#x27;\xe2\x82\xac&amp;#x27;&amp;quot;&amp;#13;&amp;#10;d&amp;nbsp;=&amp;nbsp;b.decode(&amp;quot;utf-8&amp;quot;)&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;we&amp;nbsp;decode&amp;nbsp;the&amp;nbsp;byte&amp;nbsp;literal&amp;nbsp;using&amp;nbsp;UTF-8&amp;#13;&amp;#10;print(type(d),&amp;nbsp;d)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;&amp;lt;class&amp;nbsp;&amp;#x27;str&amp;#x27;&amp;gt;&amp;nbsp;€&amp;quot;&amp;#13;&amp;#10;e&amp;nbsp;=&amp;nbsp;d.encode(&amp;quot;utf-8&amp;quot;)&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;we&amp;nbsp;can&amp;nbsp;encode&amp;nbsp;back&amp;nbsp;into&amp;nbsp;byte&amp;nbsp;literal&amp;nbsp;using&amp;nbsp;UTF-8&amp;#13;&amp;#10;print(type(e),&amp;nbsp;e)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;prints&amp;nbsp;&amp;quot;&amp;lt;class&amp;nbsp;&amp;#x27;bytes&amp;#x27;&amp;gt;&amp;nbsp;b&amp;#x27;\xe2\x82\xac&amp;#x27;&amp;quot;&amp;#13;&amp;#10;&amp;#13;&amp;#10;f&amp;nbsp;=&amp;nbsp;b.decode(&amp;quot;utf-16&amp;quot;)&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;will&amp;nbsp;error&amp;nbsp;out&amp;#13;&amp;#10;f&amp;nbsp;=&amp;nbsp;d.encode(&amp;quot;ascii&amp;quot;)&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;this&amp;nbsp;will&amp;nbsp;error&amp;nbsp;out&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;As we see above, we can freely convert between strings and byte literals
+using an encoding format. However, if we try to decode bytes using an
+encoding format where the bytes do not form a valid sequence, or if we try to
+encode a string into bytes using an encoding format that does not support
+the characters of the string, we will see errors.&lt;/p&gt;&lt;p&gt;To end off, as I promised earlier, I will explain why &lt;code&gt;&amp;quot;\xe2\x82\xac&amp;quot;&lt;/code&gt; does
+not actually translate to €. There is an important point to note, which is the
+difference between byte sequences inside strings and inside byte literals.
+Inside byte literals, the byte sequences are exactly what they seem like.
+However, inside strings, the bytes actually represent the Unicode characters
+below &lt;code&gt;0xff&lt;/code&gt;. If they are non-printable they get displayed as the bytes,
+however, if they are printable, we see the actual character. In UTF-8,
+characters between &lt;code&gt;0x80&lt;/code&gt; and &lt;code&gt;0xff&lt;/code&gt; need two bytes of information as opposed
+to one byte for &lt;code&gt;0x7f&lt;/code&gt; and below (remember ASCII compatibility?). You can see
+these principles unfurl:&lt;/p&gt;&lt;pre&gt;&lt;code&amp;nbsp;class=\&quot;language-python\&quot;&gt;s&amp;nbsp;=&amp;nbsp;&amp;quot;\x60&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;below&amp;nbsp;0x7f&amp;#13;&amp;#10;print(s,&amp;nbsp;s.encode())&amp;nbsp;&amp;nbsp;#&amp;nbsp;&amp;quot;\x60&amp;quot;&amp;nbsp;==&amp;nbsp;b&amp;quot;\x60&amp;quot;&amp;#13;&amp;#10;u&amp;nbsp;=&amp;nbsp;&amp;quot;\xe0&amp;quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;above&amp;nbsp;0x80&amp;#13;&amp;#10;print(u,&amp;nbsp;u.encode())&amp;nbsp;&amp;nbsp;#&amp;nbsp;&amp;quot;\xe0&amp;quot;&amp;nbsp;==&amp;nbsp;b&amp;quot;\xc3\xa0&amp;quot;&amp;nbsp;!=&amp;nbsp;b&amp;quot;\xe0&amp;quot;&amp;#13;&amp;#10;b&amp;nbsp;=&amp;nbsp;b&amp;quot;\xe0&amp;quot;.decode()&amp;nbsp;&amp;nbsp;#&amp;nbsp;error,&amp;nbsp;this&amp;nbsp;is&amp;nbsp;actually&amp;nbsp;invalid&amp;nbsp;in&amp;nbsp;UTF-8!&amp;#13;&amp;#10;&amp;#13;&amp;#10;#&amp;nbsp;our&amp;nbsp;old&amp;nbsp;example,&amp;nbsp;now&amp;nbsp;understood&amp;#13;&amp;#10;e&amp;nbsp;=&amp;nbsp;&amp;quot;\xe2\x82\xac&amp;quot;&amp;#13;&amp;#10;print(e,&amp;nbsp;e.encode())&amp;nbsp;&amp;nbsp;#&amp;nbsp;&amp;quot;\xe2\x82\xac&amp;quot;&amp;nbsp;==&amp;nbsp;b&amp;quot;\xc3\xa2\xc2\x82\xc2\xac&amp;quot;&amp;nbsp;!=&amp;nbsp;b&amp;quot;\xe2\x82\xac&amp;quot;&amp;#13;&amp;#10;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Overall, I hope this gives some insights into how strings work in Python.
+While some concepts are specific to Python, some concepts are much more
+generalized over all programming languages. If you want more resources about
+strings in Python or UTF-8 in general, you can check these out:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/reference/lexical_analysis.html#literals&quot;&gt;String and Bytes&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/UTF-8#Encoding&quot;&gt;UTF-8 Encoding&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/library/codecs.html#standard-encodings&quot;&gt;Other Encoding Formats&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/library/codecs.html#text-encodings&quot;&gt;
+Other Encoding Formats useful for Pickling and Debugging
+&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Generating excerpts using GatsbyJS Markdown plugins]]></title><description><![CDATA[Learn how to generate excerpts with `gatsby-transformer-remark` and work
 around the lack of the `excerpt_separator` option in `gatsby-plugin-mdx`.]]></description><link>https://suhasdara.me/blogs/gatsby-mdx-excerpts</link><guid isPermaLink="false">https://suhasdara.me/blogs/gatsby-mdx-excerpts</guid><pubDate>Tue, 31 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Learn how to generate excerpts with &lt;code&gt;gatsby-transformer-remark&lt;/code&gt; and work
 around the lack of the &lt;code&gt;excerpt_separator&lt;/code&gt; option in &lt;code&gt;gatsby-plugin-mdx&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If you have worked with GatsbyJS before, you likely have worked with either
 &lt;code&gt;gatsby-transformer-remark&lt;/code&gt;, &lt;code&gt;gatsby-plugin-mdx&lt;/code&gt; or both. When working with

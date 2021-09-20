@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-blog-tag-page-temp-js",
     "path": "/blogs=life/",
-    "result": {"data":{"posts":{"edges":[{"node":{"id":"2c307c23-9253-5fb5-aca6-49c25228cee3","timeToRead":8,"fields":{"excerpt_html":"While being situated in Pune, India, I recently did a remote internship with\na New York-based company. They shipped me a laptop and peripheral devices via\nFedEx and what followed was a nightmare."},"frontmatter":{"title":"FedEx + Customs = Nightmare","slug":"/blogs/fedex-nightmare","date":"2021-08-21T00:00:00.000Z"}}}]},"tags":{"group":[{"fieldValue":"life","totalCount":1},{"fieldValue":"tech","totalCount":1}]}},"pageContext":{"tag":"life"}},
+    "result": {"data":{"posts":{"edges":[{"node":{"id":"2c307c23-9253-5fb5-aca6-49c25228cee3","timeToRead":8,"fields":{"excerpt_html":"While being situated in Pune, India, I recently did a remote internship with\na New York-based company. They shipped me a laptop and peripheral devices via\nFedEx and what followed was a nightmare."},"frontmatter":{"title":"FedEx + Customs = Nightmare","slug":"/blogs/fedex-nightmare","date":"2021-08-21T00:00:00.000Z"}}}]},"tags":{"group":[{"fieldValue":"life","totalCount":1},{"fieldValue":"tech","totalCount":2}]}},"pageContext":{"tag":"life"}},
     "staticQueryHashes": ["63159454"]}
