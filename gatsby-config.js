@@ -47,7 +47,8 @@ module.exports = {
                   (x) => {
                     let s = JSON.stringify(x)
                       .replace(/\\n/g, "&#13;&#10;")
-                      .replace(/ /g, "&nbsp;");
+                      .replace(/ /g, "&nbsp;")
+                      .replace(/\\\\/g, "\\");
                     return s.substring(1, s.length - 1);
                   }
                 );
