@@ -1,3 +1,9 @@
+const {
+  rssSpacedCodeBlocks,
+  rssCleanUpImages,
+  rssCleanUpLinks
+} = require("./gatsby-config-functions");
+
 const remark_image_options = {
   linkImagesToOriginal: false,
   backgroundColor: `transparent`,
@@ -41,17 +47,9 @@ module.exports = {
           {
             serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
-                // allow multi line, properly spaced code blocks in the RSS feed
-                let html = edge.node.html.replace(
-                  /<pre><code.*?>[\s\S]*?<\/code><\/pre>/g,
-                  (x) => {
-                    let s = JSON.stringify(x)
-                      .replace(/\\n/g, "&#13;&#10;")
-                      .replace(/ /g, "&nbsp;")
-                      .replace(/\\\\/g, "\\");
-                    return s.substring(1, s.length - 1);
-                  }
-                );
+                let html = rssSpacedCodeBlocks(edge.node.html)
+                html = rssCleanUpImages(html, site.siteMetadata.siteUrl)
+                html = rssCleanUpLinks(html, site.siteMetadata.siteUrl)
 
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.fields.excerpt,
@@ -93,11 +91,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `the-suhas-space`,
-        short_name: `suhas-space`,
+        name: `The Suhas Space`,
+        short_name: `Suhas Space`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/images/icon.png`,
       },
