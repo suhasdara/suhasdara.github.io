@@ -61,16 +61,20 @@ export default function BlogList({ data, category }) {
               </Link>
             ))}
           </Row>
-          {blogs.map((project) => (
-            <BlogRow
-              key={project.node.id}
-              title={project.node.frontmatter.title}
-              date={project.node.frontmatter.date}
-              link={project.node.frontmatter.slug}
-              excerpt={project.node.fields.excerpt_html}
-              timeToRead={Math.ceil(project.node.timeToRead * 1.25)} //I'm a slow reader
-            />
-          ))}
+          {blogs.map((blog) => {
+            let timeToRead = Math.ceil(blog.node.timeToRead * 1.25); //I'm a slow reader
+            timeToRead += blog.node.fields.miscTimeToRead;
+            return (
+              <BlogRow
+                key={blog.node.id}
+                title={blog.node.frontmatter.title}
+                date={blog.node.frontmatter.date}
+                link={blog.node.frontmatter.slug}
+                excerpt={blog.node.fields.excerptHtml}
+                timeToRead={timeToRead}
+              />
+            );
+          })}
         </Container>
       </div>
     </Layout>

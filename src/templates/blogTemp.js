@@ -14,6 +14,7 @@ export default function BlogTemplate({ data }) {
     day: "numeric",
   });
   let timeToRead = Math.ceil(blog.timeToRead * 1.25) //I'm a slow reader
+  timeToRead += blog.fields.miscTimeToRead;
 
   return (
     <Layout backLink="/blogs/">
@@ -60,6 +61,7 @@ export const blogQuery = graphql`
       timeToRead
       fields {
         excerpt
+        miscTimeToRead
       }
       frontmatter {
         title
