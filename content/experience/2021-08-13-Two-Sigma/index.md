@@ -15,7 +15,7 @@ tools:
   - Matplotlib
   - Jinja
   - Internal tools
-slug: /experience/two-sigma
+slug: /experience/two-sigma-int
 postType: experience
 image: featured.png
 ---

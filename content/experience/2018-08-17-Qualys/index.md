@@ -16,7 +16,7 @@ tools:
   - Node.js
   - MongoDB
   - WebSocket
-slug: /experience/qualys
+slug: /experience/qualys-int
 postType: experience
 image: featured.png
 ---

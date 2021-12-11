@@ -13,7 +13,7 @@ tools:
   - Spring Boot
   - FasterXML
   - JUnit
-slug: /experience/adobe
+slug: /experience/adobe-int
 postType: experience
 image: featured.png
 ---

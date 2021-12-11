@@ -10,7 +10,7 @@ languages:
   - C#
 tools:
   - .NET Framework
-slug: /experience/microsoft
+slug: /experience/microsoft-int
 postType: experience
 image: featured.png
 ---
