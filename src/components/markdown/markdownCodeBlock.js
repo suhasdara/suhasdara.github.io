@@ -10,7 +10,7 @@ import "../../styles/components/markdown/markdownCodeBlock.css";
 
 export default function MarkdownCodeBlock({children, className}) {
   const language = className.replace(/language-/, '');
-  const noComments = children.replace(/\s+#.+/g, '');
+  const noComments = children.replace(/\n? *#.+/g, '');
 
   return (
     <Highlight {...defaultProps} code={children} language={language}>
