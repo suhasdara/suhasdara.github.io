@@ -25,7 +25,6 @@ tools:
   - Postman
 slug: /projects/travel-scares-me
 repository: https://gitlab.com/suhasdara/travel-scares-me
-projectLink: https://travelscares.me/
 demoLink: https://www.youtube.com/watch?v=fWFjnH2Fas4
 postType: project
 image: featured.png
@@ -39,9 +38,8 @@ practices, maintaining a workflow, handling issues, and continuous integration
 final web product had to be designed to have some form of utility for the
 internet community.
 
-**The website will be live only until December 2021 at
-[https://www.travelscares.me](https://www.travelscares.me)
-(Note that the website is not optimized for mobile devices)**
+**The website is no longer live after January 2022. It was originally live
+[here](https://www.travelscares.me)**
 
 The project's development was separated into 5 phases:
 1. Planning and selection of data sources
