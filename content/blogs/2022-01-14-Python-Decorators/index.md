@@ -115,9 +115,7 @@ def func(a1, a2, a3, kw1='a', kw2='b', kw3='c'):
     # essentially can be executed before the function
     print(f"debug enter func")
     print(f"debug params: {a1} {a2} {a3} {kw1} {kw2} {kw3}")
-    
     ret = (a1 + a2 + a3, kw1 + kw2 + kw3)
-
     # essentially can be executed after the function
     print(f"debug return: {ret}")
     print(f"debug exit func")
