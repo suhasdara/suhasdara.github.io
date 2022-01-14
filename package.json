@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "format": "npx prettier --write .",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "git stash -u && gatsby build && gh-pages -d public -b master && git stash pop"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
