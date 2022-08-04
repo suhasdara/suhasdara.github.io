@@ -13,6 +13,11 @@ import SubscribeButton from "../components/subscribeButton";
 import Logo from "../../content/images/icon.png";
 import Suhas from "../../content/images/Suhas.jpg";
 
+const decrypt = (encrypted) => {
+  let link = atob(encrypted)
+  return `mailto:${link}`
+}
+
 const Media = ({ icon, link }) => (
   <a
     href={link}
@@ -27,8 +32,8 @@ const Media = ({ icon, link }) => (
 );
 
 const IndexPage = () => {
-  const mailto = "mailto:Suhas%20Dara%3csuhasdara@utexas.edu%3e?" +
-    "subject=The%20Suhas%20Space%20(subject)"
+  const mailto_encrypted = "U3VoYXMlMjBEYXJhJTNjc3VoYXNkYXJhQHV0ZXhhcy5lZHUlM2U" +
+      "/c3ViamVjdD1UaGUlMjBTdWhhcyUyMFNwYWNlJTIwKHN1YmplY3Qp"
   console.log("Hi there! What are you trying to do?"); //For the cheeky folks
 
   return (
@@ -65,7 +70,10 @@ const IndexPage = () => {
             </Row>
             <Row>
               <Col xs="12" className="d-inline-flex justify-content-center">
-                <Media icon={faEnvelope} link={mailto} />
+                <Media
+                  icon={faEnvelope}
+                  link={decrypt(mailto_encrypted)}
+                />
                 <Media
                   icon={faLinkedin}
                   link="https://www.linkedin.com/in/suhas-dara"

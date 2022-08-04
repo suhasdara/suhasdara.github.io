@@ -30,7 +30,7 @@ module.exports = {
       options: remark_image_options,
     },
     {
-      resolve: `gatsby-plugin-feed-mdx`,
+      resolve: `gatsby-plugin-feed`,
       options: {
         query: `
           {
