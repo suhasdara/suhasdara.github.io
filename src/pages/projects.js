@@ -1,5 +1,4 @@
 import React from "react";
-import { CardDeck } from "react-bootstrap";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
@@ -14,18 +13,19 @@ export default function ProjectsPage({ data }) {
       <Seo title="Projects" description="Suhas Dara's projects" />
       <div className="pt-5">
         <h1 className="text-center text-light">Projects</h1>
-        <CardDeck className="d-flex flex-row flex-wrap justify-content-center pt-3">
+        <div className="d-flex flex-row flex-wrap justify-content-center pt-3">
           {projects.map((project) => (
-            <ProjectCard
-              key={project.node.id}
-              title={project.node.frontmatter.title}
-              link={project.node.frontmatter.slug}
-              startDates={project.node.frontmatter.startDates}
-              endDates={project.node.frontmatter.endDates}
-              imgSrc={project.node.frontmatter.image.childImageSharp.fluid.src}
-            />
+            <div key={project.node.id} className="p-2">
+              <ProjectCard
+                title={project.node.frontmatter.title}
+                link={project.node.frontmatter.slug}
+                startDates={project.node.frontmatter.startDates}
+                endDates={project.node.frontmatter.endDates}
+                imgSrc={project.node.frontmatter.image.childImageSharp.fluid.src}
+              />
+            </div>
           ))}
-        </CardDeck>
+        </div>
       </div>
     </Layout>
   );

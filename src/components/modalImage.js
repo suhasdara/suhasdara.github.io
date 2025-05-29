@@ -18,16 +18,27 @@ function ModalImage(props) {
     modalSrc = src;
   }
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setShow(!show);
+    }
+  };
+
   return (
     <>
       <img
         {...rest}
         onClick={() => setShow(!show)}
+        onKeyPress={handleKeyPress}
         className={rest.className + " click-image"}
         src={src}
         alt={alt}
         title={title}
         style={img_style}
+        tabIndex={0}
+        role="button"
+        aria-label={`Click to enlarge ${alt || 'image'}`}
       />
       <Modal
         centered
