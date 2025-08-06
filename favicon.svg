@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Terminal window background -->
+  <rect width="32" height="32" rx="2" fill="#0f172a"/>
+  
+  <!-- Terminal header bar -->
+  <rect width="32" height="7" rx="2" fill="#1e293b"/>
+  <rect y="7" width="32" height="25" fill="#0f172a"/>
+  
+  <!-- Terminal dots -->
+  <circle cx="5" cy="3.5" r="1" fill="#ef4444"/>
+  <circle cx="9" cy="3.5" r="1" fill="#eab308"/>
+  <circle cx="13" cy="3.5" r="1" fill="#22c55e"/>
+  
+  <!-- Terminal prompt symbol -->
+  <text x="3" y="25" font-family="monospace" font-size="8" fill="#22c55e">$</text>
+  
+  <!-- SD text in terminal green, larger -->
+  <text x="29" y="25" font-family="monospace" font-size="12" font-weight="bold" text-anchor="end" fill="#22c55e">SD</text>
+</svg>
