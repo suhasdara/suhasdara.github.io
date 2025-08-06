@@ -103,7 +103,7 @@ def create_experience():
             out.write(f"tools:\n")
             for tool in tools:
                 out.write(f"  - {tool}\n")
-        out.write(f"slug: /experience/{slug}\n")
+        out.write(f"slug: /experience/{slug}/\n")
         out.write(f"postType: experience\n")
         out.write(f"image: featured.{get_ext(imgPath)}\n")
         out.write(f"---\n")
@@ -160,7 +160,7 @@ def create_project():
             out.write(f"projectLink: {projectLink}\n")
         if demoLink != "":
             out.write(f"demoLink: {demoLink}\n")
-        out.write(f"slug: /projects/{slug}\n")
+        out.write(f"slug: /projects/{slug}/\n")
         out.write(f"postType: project\n")
         out.write(f"image: featured.{get_ext(imgPath)}\n")
         out.write(f"---\n")
@@ -186,7 +186,7 @@ def create_blog():
             out.write(f"tags:\n")
             for tag in tags:
                 out.write(f"  - {tag}\n")
-        out.write(f"slug: /blogs/{slug}\n")
+        out.write(f"slug: /blogs/{slug}/\n")
         out.write(f"postType: blog\n")
         out.write(f"---\n\n")
         out.write(f"<!--excerpt-->\n")

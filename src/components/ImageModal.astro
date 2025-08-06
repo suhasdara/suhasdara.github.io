@@ -1,0 +1,112 @@
+---
+// Global Image Modal Component
+---
+
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+  <div class="relative max-w-6xl max-h-[95vh] mx-4">
+    <img 
+      id="modalImage" 
+      src="" 
+      alt="" 
+      class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+    />
+    <button 
+      id="modalCloseButton"
+      class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+      aria-label="Close modal"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <div id="modalCaption" class="absolute bottom-4 left-4 right-4 text-center">
+      <p class="bg-black/50 text-white px-4 py-2 rounded-lg text-lg font-medium"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openImageModal(src: string, alt: string, title: string) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+    const modalCaption = document.getElementById('modalCaption');
+    
+    if (modalImage) {
+      modalImage.src = src;
+      modalImage.alt = alt || '';
+    }
+    
+    const captionP = modalCaption?.querySelector('p');
+    if (captionP) {
+      captionP.textContent = title || alt || '';
+    }
+    
+    modal?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal?.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function initImageModal() {
+    const modal = document.getElementById('imageModal');
+    const closeButton = document.getElementById('modalCloseButton');
+    if (!modal) return;
+
+    // Close button event listener
+    closeButton?.addEventListener('click', closeImageModal);
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeImageModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeImageModal();
+      }
+    });
+
+    // Make all images with 'modal-image' class clickable
+    document.querySelectorAll('.modal-image').forEach(img => {
+      const imgElement = img as HTMLImageElement;
+      imgElement.style.cursor = 'pointer';
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const src = imgElement.src;
+        const alt = imgElement.alt;
+        const title = imgElement.getAttribute('data-title') || alt;
+        openImageModal(src, alt, title);
+      });
+    });
+
+    // Make all images in prose content clickable (for blog/project content)
+    document.querySelectorAll('.prose img').forEach(img => {
+      const imgElement = img as HTMLImageElement;
+      imgElement.style.cursor = 'pointer';
+      img.classList.add('hover:shadow-lg', 'transition-shadow');
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const src = imgElement.src;
+        const alt = imgElement.alt;
+        const title = imgElement.getAttribute('data-title') || alt || 'Image';
+        openImageModal(src, alt, title);
+      });
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initImageModal);
+  
+  // Also run after navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', initImageModal);
+</script>

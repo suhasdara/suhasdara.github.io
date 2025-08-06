@@ -1,13 +1,11 @@
-<h1 align="center">
-  My Personal Website
-</h1>
-<p align="center">
-  <a href="https://www.suhasdara.me">
-    <img alt="The Suhas Space" src="/content/images/icon.png" width="60" />
-  </a>
-</p>
-<p align="center">
-  <a href="https://www.suhasdara.me">
-    https://www.suhasdara.me
-  </a>
-</p>
+# My Personal Website
+
+![Website Icon](public/favicon.svg)
+
+My personal portfolio website built with [Astro](https://astro.build/). Features a terminal-themed design showcasing my projects, experience, and blog posts.
+
+**Visit:** [suhasdara.me](https://suhasdara.me)
+
+## Built with Astro
+
+A modern, fast static site generator that delivers lightning-fast performance with minimal JavaScript.

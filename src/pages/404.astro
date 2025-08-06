@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Command not found - Suhas Dara">
+  <div class="pt-8 my-auto flex items-center justify-center min-h-[60vh]">
+    <div class="max-w-xl mx-auto">
+      <div class="bg-gray-900 rounded-lg border border-red-500/50 p-6 mb-8 transform -rotate-1 shadow-lg shadow-red-500/20">
+        <div class="font-mono text-sm space-y-2 mb-6">
+          <div class="flex items-center">
+            <span class="text-red-400 mr-2 animate-pulse">er█or@po█tfolio:~$</span>
+            <span class="text-white">cd {Astro.url.pathname}</span>
+          </div>
+          <div class="text-red-400 ml-4 animate-pulse">
+            █ash: cd: {Astro.url.pathname}: ██ such file or directory
+          </div>
+          <div class="text-red-300 ml-4 text-xs opacity-60">
+            [SYSTEM ERROR: Terminal corrupted]
+          </div>
+        </div>
+        
+        <div class="text-green-300 text-sm font-mono mb-4 opacity-80">Av█ilable directories:</div>
+        <div class="space-y-2">
+          <div class="text-blue-400 font-mono text-sm">
+            <a href="/" class="hover:text-blue-300 hover:underline">./</a>
+          </div>
+          <div class="text-blue-400 font-mono text-sm transform -skew-x-1">
+            <a href="/about" class="hover:text-blue-300 hover:underline">./ab█ut/</a>
+          </div>
+          <div class="text-blue-400 font-mono text-sm">
+            <a href="/projects" class="hover:text-blue-300 hover:underline">./projects/</a>
+          </div>
+          <div class="text-blue-400 font-mono text-sm transform skew-x-1">
+            <a href="/experience" class="hover:text-blue-300 hover:underline">./exp█rience/</a>
+          </div>
+          <div class="text-blue-400 font-mono text-sm">
+            <a href="/blogs" class="hover:text-blue-300 hover:underline">./blogs/</a>
+          </div>
+        </div>
+        
+        <div class="mt-4 text-red-400 text-xs font-mono opacity-50 animate-pulse">
+          [WARNING: File system integrity compromised]
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <a href="/" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors transform hover:rotate-0 rotate-1">
+          Go Home
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

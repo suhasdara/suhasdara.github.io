@@ -1,0 +1,129 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const aboutContent = await getCollection('about');
+const about = aboutContent[0]; // Get the first (and only) about entry
+const { Content } = await about.render();
+---
+
+<BaseLayout title="About Me - Suhas Dara">
+  <article class="max-w-5xl mx-auto">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <div class="mb-8">
+        <img 
+          src="/about/Suhas.jpg"
+          alt="Suhas Dara"
+          data-title="Suhas Dara"
+          class="modal-image w-32 h-32 rounded-full mx-auto mb-6 shadow-lg ring-4 ring-blue-600/20 hover:ring-blue-600/40 transition-all"
+        />
+      </div>
+      <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+        {about.data.title}
+      </h1>
+      {about.data.subtitle && (
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          {about.data.subtitle}
+        </p>
+      )}
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-4xl mx-auto mb-16">
+      <div class="prose prose-invert prose-blue prose-lg max-w-none">
+        <Content />
+      </div>
+    </div>
+
+    <!-- Quick Facts & Interests Section -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-gray-800 rounded-lg p-6">
+        <h3 class="text-lg font-semibold mb-4">Quick Facts</h3>
+        <div class="space-y-3 text-sm">
+          <div class="flex items-center gap-3">
+            <span class="text-blue-400">🎓</span>
+            <span class="text-gray-300">Purdue MS ECE Student</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-blue-400">📍</span>
+            <span class="text-gray-300">From Pune, India</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-blue-400">💻</span>
+            <span class="text-gray-300">Teaching Assistant</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-blue-400">🎯</span>
+            <span class="text-gray-300">Future Neural Engineer</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-gray-800 rounded-lg p-6">
+        <h3 class="text-lg font-semibold mb-4">Interests</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-600 text-white px-3 py-1 rounded text-sm">Deep Learning</span>
+          <span class="bg-purple-600 text-white px-3 py-1 rounded text-sm">Data Exploration</span>
+          <span class="bg-green-600 text-white px-3 py-1 rounded text-sm">Signal Processing</span>
+          <span class="bg-red-600 text-white px-3 py-1 rounded text-sm">AI</span>
+          <span class="bg-yellow-600 text-white px-3 py-1 rounded text-sm">Neural Engineering</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hobbies & Interests -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold mb-8 text-center">When I'm Not Coding</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {about.data.hobbies.map((hobby) => (
+          <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-750 transition-colors group">
+            <div class="aspect-video relative overflow-hidden">
+              <img 
+                src={`/about/${hobby.image}`}
+                alt={hobby.title}
+                data-title={hobby.title}
+                class="modal-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-colors">
+                {hobby.title}
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                {hobby.description}
+              </p>
+              {hobby.link && (
+                <a 
+                  href={hobby.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-400 hover:text-blue-300 text-sm font-medium inline-flex items-center gap-1"
+                >
+                  Check it out
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Easter egg -->
+    <div class="flex justify-end">
+      <a 
+        href="https://suhas-dara.blogspot.com/p/home.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-2xl hover:scale-110 transition-transform duration-300 cursor-pointer"
+        title="🥚 You found the easter egg! Click to see my childhood blog"
+      >
+        🥚
+      </a>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,173 @@
+---
+// CodeBlock component to enhance code blocks with copy functionality
+---
+
+<script>
+  function initCodeBlocks() {
+    // Find all pre elements that contain code
+    const codeBlocks = document.querySelectorAll('pre code');
+    
+    codeBlocks.forEach((code) => {
+      const pre = code.parentElement;
+      if (!pre || pre.tagName !== 'PRE') return;
+      
+      // Skip if already processed
+      if (pre.querySelector('.copy-button')) return;
+      
+      // Try to extract language from multiple possible sources
+      let language = 'text';
+      
+      // Check code element classes (various patterns)
+      if (code.className) {
+        // Pattern 1: language-python
+        let match = code.className.match(/language-(\w+)/);
+        if (match) {
+          language = match[1];
+        } else {
+          // Pattern 2: shiki themes often use different patterns
+          match = code.className.match(/(\w+)/);
+          if (match && !['hljs', 'shiki', 'astro-code'].includes(match[1])) {
+            language = match[1];
+          }
+        }
+      }
+      
+      // Check pre element classes
+      if (language === 'text' && pre.className) {
+        let match = pre.className.match(/language-(\w+)/);
+        if (match) {
+          language = match[1];
+        } else {
+          // Check for astro-code pattern
+          match = pre.className.match(/astro-code-(\w+)/);
+          if (match) {
+            language = match[1];
+          }
+        }
+      }
+      
+      // Check data attributes
+      if (language === 'text') {
+        const dataLang = pre.getAttribute('data-language') || code.getAttribute('data-language');
+        if (dataLang) {
+          language = dataLang;
+        }
+      }
+      
+      // Fallback: try to detect from the original markdown
+      if (language === 'text') {
+        // Look for common patterns in nearby text content
+        const preContent = code.textContent || '';
+        if (preContent.includes('def ') || preContent.includes('import ') || preContent.includes('print(')) {
+          language = 'python';
+        } else if (preContent.includes('function ') || preContent.includes('const ') || preContent.includes('console.log')) {
+          language = 'javascript';
+        } else if (preContent.includes('SELECT ') || preContent.includes('FROM ')) {
+          language = 'sql';
+        }
+      }
+      
+      console.log('Code block detected:', {
+        codeClass: code.className,
+        preClass: pre.className,
+        detectedLanguage: language,
+        preAttributes: Array.from(pre.attributes).map(attr => `${attr.name}="${attr.value}"`),
+        codeAttributes: Array.from(code.attributes).map(attr => `${attr.name}="${attr.value}"`)
+      });
+      
+      // Create wrapper div
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper relative';
+      
+      // Insert wrapper before pre and move pre into it
+      pre.parentNode?.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      
+      // Create header with language and copy button
+      const header = document.createElement('div');
+      header.className = 'code-block-header flex justify-between items-center bg-gray-800 px-4 py-2 rounded-t-lg border-b border-gray-700';
+      
+      const langLabel = document.createElement('span');
+      langLabel.className = 'text-sm text-gray-400 font-mono uppercase';
+      langLabel.textContent = language;
+      
+      const copyButton = document.createElement('button');
+      copyButton.className = 'copy-button text-sm text-gray-400 hover:text-white transition-colors px-3 py-1 rounded bg-gray-700 hover:bg-gray-600 flex items-center gap-2';
+      copyButton.innerHTML = `
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+          <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+        </svg>
+        <span class="copy-text">Copy</span>
+        <span class="copied-text hidden">Copied!</span>
+      `;
+      
+      copyButton.addEventListener('click', async () => {
+        try {
+          const codeText = code.textContent || '';
+          await navigator.clipboard.writeText(codeText);
+          
+          // Show "Copied!" feedback
+          const copyText = copyButton.querySelector('.copy-text');
+          const copiedText = copyButton.querySelector('.copied-text');
+          
+          if (copyText && copiedText) {
+            copyText.classList.add('hidden');
+            copiedText.classList.remove('hidden');
+            
+            setTimeout(() => {
+              copyText.classList.remove('hidden');
+              copiedText.classList.add('hidden');
+            }, 2000);
+          }
+        } catch (err) {
+          console.error('Failed to copy code:', err);
+          // Fallback for browsers that don't support clipboard API
+          try {
+            const textArea = document.createElement('textarea');
+            textArea.value = code.textContent || '';
+            document.body.appendChild(textArea);
+            textArea.select();
+            // execCommand is deprecated but needed for older browser fallback
+            const success = document.execCommand('copy');
+            document.body.removeChild(textArea);
+            if (!success) {
+              throw new Error('execCommand failed');
+            }
+          } catch (fallbackErr) {
+            console.error('Clipboard fallback also failed:', fallbackErr);
+          }
+        }
+      });
+      
+      header.appendChild(langLabel);
+      header.appendChild(copyButton);
+      
+      // Insert header before pre
+      wrapper.insertBefore(header, pre);
+      
+      // Update pre styling to connect with header
+      pre.style.marginTop = '0';
+      pre.style.borderTopLeftRadius = '0';
+      pre.style.borderTopRightRadius = '0';
+    });
+  }
+  
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initCodeBlocks);
+  
+  // Also run after navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', initCodeBlocks);
+</script>
+
+<style>
+  .code-block-wrapper pre {
+    margin-top: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+  
+  .code-block-header {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+</style>

@@ -1,0 +1,178 @@
+---
+import { Linkedin, Github, Menu, X } from 'lucide-astro';
+import ImageModal from '../components/ImageModal.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Suhas Dara's Portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
+    <link rel="shortcut icon" href="/favicon.svg?v=1" />
+    <link rel="alternate" type="application/rss+xml" title="Suhas Dara - Blog" href="/rss.xml" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-black text-green-400 min-h-screen font-mono">
+    <nav class="bg-gray-900 border-b border-green-600/30 shadow-lg shadow-green-500/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center space-x-8">
+            <a href="/" class="text-green-400 font-bold text-xl tracking-wider">
+              <span class="text-green-600">$</span> suhas<span class="text-green-600">@</span>portfolio
+            </a>
+            <div class="hidden md:flex space-x-1">
+              <a href="/about" class="text-green-300 hover:text-green-400 hover:bg-green-400/10 px-3 py-2 rounded border border-transparent hover:border-green-400/30 transition-all duration-200">~/about</a>
+              <a href="/projects" class="text-green-300 hover:text-green-400 hover:bg-green-400/10 px-3 py-2 rounded border border-transparent hover:border-green-400/30 transition-all duration-200">~/projects</a>
+              <a href="/experience" class="text-green-300 hover:text-green-400 hover:bg-green-400/10 px-3 py-2 rounded border border-transparent hover:border-green-400/30 transition-all duration-200">~/experience</a>
+              <a href="/blogs" class="text-green-300 hover:text-green-400 hover:bg-green-400/10 px-3 py-2 rounded border border-transparent hover:border-green-400/30 transition-all duration-200">~/blogs</a>
+            </div>
+          </div>
+          
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button 
+              id="mobile-menu-button"
+              class="text-green-300 hover:text-green-400 focus:outline-none focus:text-green-400 border border-green-400/30 rounded p-1"
+              aria-label="Toggle menu"
+            >
+              <Menu id="menu-icon" size={20} />
+              <X id="close-icon" size={20} class="hidden" />
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+          <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-800 border-t border-green-600/30">
+            <a href="/about" class="text-green-300 hover:text-green-400 hover:bg-green-400/10 block px-3 py-2 rounded border border-transparent hover:border-green-400/30 transform transition-all duration-200 translate-y-2 opacity-0 menu-item">~/about</a>
+            <a href="/projects" class="text-green-300 hover:text-green-400 hover:bg-green-400/10 block px-3 py-2 rounded border border-transparent hover:border-green-400/30 transform transition-all duration-200 translate-y-2 opacity-0 menu-item" style="transition-delay: 50ms;">~/projects</a>
+            <a href="/experience" class="text-green-300 hover:text-green-400 hover:bg-green-400/10 block px-3 py-2 rounded border border-transparent hover:border-green-400/30 transform transition-all duration-200 translate-y-2 opacity-0 menu-item" style="transition-delay: 100ms;">~/experience</a>
+            <a href="/blogs" class="text-green-300 hover:text-green-400 hover:bg-green-400/10 block px-3 py-2 rounded border border-transparent hover:border-green-400/30 transform transition-all duration-200 translate-y-2 opacity-0 menu-item" style="transition-delay: 150ms;">~/blogs</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <slot />
+    </main>
+    
+    <footer class="bg-gray-900 border-t border-green-600/30 py-8 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-green-300 font-mono text-sm">
+            <span class="text-green-600">#</span> &copy; 2025 Suhas Dara. All rights reserved.
+          </p>
+          
+          <div class="flex items-center gap-4">
+            <a 
+              href="https://www.linkedin.com/in/suhas-dara" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-green-300 hover:text-green-400 hover:bg-green-400/10 p-2 rounded border border-transparent hover:border-green-400/30 transition-all duration-200"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={18} />
+            </a>
+            
+            <a 
+              href="https://www.github.com/suhasdara" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-green-300 hover:text-green-400 hover:bg-green-400/10 p-2 rounded border border-transparent hover:border-green-400/30 transition-all duration-200"
+              aria-label="GitHub"
+            >
+              <Github size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <ImageModal />
+    
+    <script>
+      function initMobileMenu() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        if (!mobileMenuButton || !mobileMenu || !menuIcon || !closeIcon) return;
+        
+        mobileMenuButton.addEventListener('click', () => {
+          const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+          const menuItems = mobileMenu.querySelectorAll('.menu-item');
+          
+          if (!isOpen) {
+            // Opening animation
+            mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            
+            // Animate menu items in with stagger
+            menuItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.remove('translate-y-2', 'opacity-0');
+                item.classList.add('translate-y-0', 'opacity-100');
+              }, index * 50);
+            });
+          } else {
+            // Closing animation
+            menuItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('translate-y-2', 'opacity-0');
+                item.classList.remove('translate-y-0', 'opacity-100');
+              }, index * 30);
+            });
+            
+            // Close menu after items animate out
+            setTimeout(() => {
+              mobileMenu.style.maxHeight = '0px';
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+            }, menuItems.length * 30 + 100);
+          }
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            const menuItems = mobileMenu.querySelectorAll('.menu-item');
+            
+            // Animate items out
+            menuItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('translate-y-2', 'opacity-0');
+                item.classList.remove('translate-y-0', 'opacity-100');
+              }, index * 30);
+            });
+            
+            // Close menu after animation
+            setTimeout(() => {
+              mobileMenu.style.maxHeight = '0px';
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+            }, menuItems.length * 30 + 100);
+          });
+        });
+      }
+      
+      // Initialize on page load
+      document.addEventListener('DOMContentLoaded', initMobileMenu);
+      
+      // Also initialize on Astro page load (for SPA-like navigation)
+      document.addEventListener('astro:page-load', initMobileMenu);
+    </script>
+  </body>
+</html>

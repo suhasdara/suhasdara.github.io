@@ -1,53 +1,30 @@
 {
-  "name": "the-suhas-space",
-  "version": "1.0.0",
-  "private": true,
-  "description": "The Suhas Space",
-  "author": "Suhas Dara",
-  "keywords": [
-    "gatsby"
-  ],
+  "name": "astro-portfolio",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "format": "npx prettier --write .",
-    "deploy": "git stash -u && gatsby build && gh-pages -d public -b master && git stash pop"
+    "dev": "node copy-assets.js && astro dev",
+    "start": "astro dev",
+    "build": "node copy-assets.js && astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "npm run build && gh-pages -d dist",
+    "push": "git add . && git commit -m 'Update portfolio' && git push origin main"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-regular-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "bootstrap": "^4.6.2",
-    "gatsby": "^4.20.0",
-    "gatsby-image": "^3.11.0",
-    "gatsby-plugin-feed": "^4.20.0",
-    "gatsby-plugin-fontawesome-css": "^1.2.0",
-    "gatsby-plugin-manifest": "^4.20.0",
-    "gatsby-plugin-mdx": "^3.20.0",
-    "gatsby-plugin-react-helmet": "^5.20.0",
-    "gatsby-plugin-sharp": "^4.20.0",
-    "gatsby-plugin-styled-components": "^5.20.0",
-    "gatsby-remark-images": "^6.20.0",
-    "gatsby-source-filesystem": "^4.20.0",
-    "gatsby-transformer-sharp": "^4.20.0",
-    "prism-react-renderer": "^1.3.5",
-    "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-bootstrap": "^2.4.0",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "showdown": "^2.1.0",
-    "styled-components": "^5.3.5"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.3",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.4.2",
+    "@astrojs/tailwind": "^5.1.2",
+    "@tailwindcss/typography": "^0.5.16",
+    "astro": "^5.0.0",
+    "lucide-astro": "^0.536.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0",
-    "prettier": "^2.7.1"
+    "@types/node": "^22.10.2",
+    "gh-pages": "^6.1.1"
   }
 }

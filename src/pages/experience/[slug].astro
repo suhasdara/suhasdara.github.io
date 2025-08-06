@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+
+export async function getStaticPaths() {
+  const experience = await getCollection('experience');
+  return experience.map((exp) => ({
+    params: { slug: exp.data.slug || exp.slug },
+    props: { experience: exp },
+  }));
+}
+
+const { experience } = Astro.props;
+const { Content } = await experience.render();
+
+import { formatProjectDate as formatDate } from '../../utils/dateUtils';
+---
+
+<BaseLayout title={`${experience.data.title} - Suhas Dara`}>
+  <article class="max-w-4xl mx-auto">
+    <div class="mb-8">
+      <a href="/experience" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">
+        ← Back to Experience
+      </a>
+      <h1 class="text-4xl font-bold mb-4">{experience.data.title}</h1>
+      
+      <div class="flex items-center gap-4 mb-6">
+        {experience.data.companyLink ? (
+          <a 
+            href={experience.data.companyLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-blue-400 hover:text-blue-300 text-xl font-medium"
+          >
+            {experience.data.company} →
+          </a>
+        ) : (
+          <p class="text-blue-400 text-xl font-medium">{experience.data.company}</p>
+        )}
+        <div class="text-gray-400">
+          {experience.data.startDates.map((startDate, index) => (
+            <div>
+              {formatDate(startDate)} - {formatDate(experience.data.endDates[index])}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <div class="md:col-span-2">
+        <div class="prose prose-invert prose-blue max-w-none">
+          <Content />
+        </div>
+      </div>
+      
+      <div class="space-y-6 sticky top-6 self-start">
+        <div class="mb-6">
+          <img 
+            src={`/experience/${experience.id.split('/')[0]}/${experience.data.image}`}
+            alt={experience.data.company}
+            data-title={`${experience.data.title} at ${experience.data.company}`}
+            class="modal-image w-full max-h-48 rounded-lg shadow-lg object-contain hover:shadow-xl transition-shadow"
+          />
+        </div>
+        
+        <div class="bg-gray-800 rounded-lg p-6">
+          <h3 class="text-lg font-semibold mb-4">Languages</h3>
+          <div class="flex flex-wrap gap-2">
+            {experience.data.languages.map((lang) => (
+              <span class="bg-blue-600 text-white px-3 py-1 rounded text-sm">{lang}</span>
+            ))}
+          </div>
+        </div>
+        
+        {experience.data.tools.length > 0 && (
+          <div class="bg-gray-800 rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-4">Tools & Technologies</h3>
+            <div class="flex flex-wrap gap-2">
+              {experience.data.tools.map((tool) => (
+                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded text-sm">{tool}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </article>
+  
+  <CodeBlock />
+</BaseLayout>
+

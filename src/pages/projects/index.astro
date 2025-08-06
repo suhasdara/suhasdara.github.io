@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatProjectDate as formatDate, sortByStartDate } from '../../utils/dateUtils';
+
+const projects = await getCollection('projects');
+const sortedProjects = sortByStartDate(projects);
+---
+
+<BaseLayout title="Projects - Suhas Dara">
+  <div>
+    <h1 class="text-4xl font-bold mb-8 text-green-300 font-mono">
+      <span class="text-green-600">$</span> ls ~/projects/
+    </h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedProjects.map((project) => (
+        <div class="bg-gray-900 border border-green-600/30 rounded-lg overflow-hidden hover:bg-gray-800 hover:border-green-500/50 transition-colors cursor-pointer" onclick={`window.location.href='/projects/${project.data.slug || project.slug}'`}>
+          <img 
+            src={`/projects/${project.id.split('/')[0]}/${project.data.image}`}
+            alt={project.data.title}
+            class="w-full h-48 object-cover border-b border-green-600/30"
+          />
+          <div class="p-6">
+            <h2 class="text-xl font-semibold mb-3 font-mono">
+              <a href={`/projects/${project.data.slug || project.slug}`} class="text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                {project.data.title}
+              </a>
+            </h2>
+              <div class="mb-4">
+                <p class="text-sm text-green-600 mb-2 font-mono">
+                  <span class="text-green-500">//</span> {formatDate(project.data.startDates[0])} - {formatDate(project.data.endDates[0])}
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <h4 class="text-sm font-medium text-green-300 mb-2 font-mono">Languages:</h4>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {project.data.languages.map((lang) => (
+                    <span class="bg-green-600/20 text-green-300 border border-green-600/40 px-2 py-1 rounded text-sm font-mono">{lang}</span>
+                  ))}
+                </div>
+              </div>
+              
+              {project.data.tools.length > 0 && (
+                <div class="mb-4">
+                  <h4 class="text-sm font-medium text-green-300 mb-2 font-mono">Tools:</h4>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {project.data.tools.map((tool) => (
+                      <span class="bg-gray-700/50 text-green-200 border border-gray-600 px-2 py-1 rounded text-sm font-mono">{tool}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            
+            {project.data.repository && (
+              <div class="px-6 pb-4 border-t border-green-600/20">
+                <a 
+                  href={project.data.repository} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="text-blue-400 hover:text-blue-300 font-mono text-sm inline-flex items-center gap-1 mt-3 font-medium"
+onclick="(e) => e.stopPropagation()"
+                >
+                  <span class="text-green-600">git clone</span> {project.data.repository.split('/').pop()?.replace('.git', '') || 'repository'} →
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
