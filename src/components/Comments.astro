@@ -1,0 +1,45 @@
+---
+// Giscus Comments Component
+---
+
+<div class="comments-section mt-12 pt-8 border-t border-green-600/30">
+  <h2 class="text-2xl font-bold mb-6 text-green-300 font-mono">
+    <span class="text-green-600">#</span> Comments
+  </h2>
+  
+  <div id="giscus-container" class="giscus-container">
+    <script 
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo="suhasdara/suhasdara.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkzNTQ4MzE4Mjg="
+      data-category="Blog comments"
+      data-category-id="DIC_kwDOFSZN1M4Ct3IW"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="gruvbox_dark"
+      data-lang="en"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+</div>
+
+<style>
+  .giscus-container {
+    /* Ensure Giscus integrates well with the site's theme */
+    border-radius: 0.5rem;
+    background: rgba(31, 41, 55, 0.5);
+    padding: 1.5rem;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+  }
+
+  /* Override Giscus styles to match site theme better */
+  .giscus-container :global(.giscus-frame) {
+    border-radius: 0.5rem;
+  }
+</style>

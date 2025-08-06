@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CodeBlock from '../../components/CodeBlock.astro';
+import Comments from '../../components/Comments.astro';
 
 export async function getStaticPaths() {
   const blogs = await getCollection('blogs');
@@ -38,6 +39,8 @@ import { formatBlogDate as formatDate } from '../../utils/dateUtils';
     <div class="prose prose-invert prose-blue prose-lg max-w-none">
       <Content />
     </div>
+
+    <Comments />
   </article>
   
   <CodeBlock />
