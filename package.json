@@ -8,7 +8,7 @@
     "build": "node copy-assets.js && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "git stash -u && npm run build && gh-pages -d dist -b master && git stash pop",
+    "deploy": "git stash -u && npm run build && gh-pages -d dist -b master --dotfiles && git stash pop",
     "push": "git add . && git commit -m 'Update portfolio' && git push origin main"
   },
   "dependencies": {

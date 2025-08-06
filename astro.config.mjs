@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://suhasdara.me',
+  base: '/',
   integrations: [tailwind(), mdx(), sitemap()],
   markdown: {
     shikiConfig: {
