@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Rss } from 'lucide-astro';
 
-import { sortByDate } from '../../utils/dateUtils';
+import { sortByDate, calculateReadingTime } from '../../utils/dateUtils';
 
 const blogs = await getCollection('blogs');
 const sortedBlogs = sortByDate(blogs);
@@ -78,7 +78,11 @@ import { formatBlogDate as formatDate } from '../../utils/dateUtils';
                       {blog.data.title}
                     </a>
                   </h2>
-                  <time class="text-green-600 font-mono text-sm">{formatDate(blog.data.date.toISOString().split('T')[0])}</time>
+                  <div class="flex items-center gap-3 text-sm font-mono">
+                    <time class="text-green-600">{formatDate(blog.data.date.toISOString().split('T')[0])}</time>
+                    <span class="text-gray-500">•</span>
+                    <span class="text-gray-400">{calculateReadingTime(blog.body)}</span>
+                  </div>
                 </div>
                 
                 <div class="flex flex-wrap gap-2 ml-4">

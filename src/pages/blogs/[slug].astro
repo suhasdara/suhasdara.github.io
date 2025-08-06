@@ -15,7 +15,10 @@ export async function getStaticPaths() {
 const { blog } = Astro.props;
 const { Content } = await blog.render();
 
-import { formatBlogDate as formatDate } from '../../utils/dateUtils';
+// Calculate reading time from the blog content
+const readingTime = calculateReadingTime(blog.body);
+
+import { formatBlogDate as formatDate, calculateReadingTime } from '../../utils/dateUtils';
 ---
 
 <BaseLayout title={`${blog.data.title} - Suhas Dara`}>
@@ -28,6 +31,8 @@ import { formatBlogDate as formatDate } from '../../utils/dateUtils';
       
       <div class="flex items-center gap-4 mb-6">
         <time class="text-gray-400">{formatDate(blog.data.date.toISOString().split('T')[0])}</time>
+        <span class="text-gray-400">•</span>
+        <span class="text-gray-400">{readingTime}</span>
         <div class="flex flex-wrap gap-2">
           {blog.data.tags.map((tag) => (
             <span class="bg-purple-600 text-white px-2 py-1 rounded text-sm">#{tag}</span>
