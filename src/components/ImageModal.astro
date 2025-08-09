@@ -1,10 +1,11 @@
 ---
+import { X } from 'lucide-astro';
 // Global Image Modal Component
 ---
 
 <!-- Image Modal -->
-<div id="imageModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-  <div class="relative max-w-6xl max-h-[95vh] mx-4">
+<div id="imageModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden p-4">
+  <div class="relative w-full h-full max-w-6xl max-h-full flex items-center justify-center">
     <img 
       id="modalImage" 
       src="" 
@@ -13,14 +14,12 @@
     />
     <button 
       id="modalCloseButton"
-      class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+      class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors z-10"
       aria-label="Close modal"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
+      <X size={24} />
     </button>
-    <div id="modalCaption" class="absolute bottom-4 left-4 right-4 text-center">
+    <div id="modalCaption" class="absolute bottom-4 left-4 right-4 text-center z-10">
       <p class="bg-black/50 text-white px-4 py-2 rounded-lg text-lg font-medium"></p>
     </div>
   </div>

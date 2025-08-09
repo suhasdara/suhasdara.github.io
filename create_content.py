@@ -1,8 +1,30 @@
+#!/usr/bin/env python3
+"""
+Content Creation Script for Website
+
+This script creates new content files (blog, project, experience) with proper frontmatter
+for an Astro-based website. It includes comprehensive field support based on existing
+content structure analysis.
+
+Features:
+- Interactive input collection with validation
+- Comprehensive frontmatter generation for all content types
+- Image file copying and validation
+- URL and date validation
+- Directory name sanitization
+- Confirmation prompts before creation
+
+Usage:
+    python create_content.py --blog
+    python create_content.py --project  
+    python create_content.py --experience
+"""
+
 import argparse
 import datetime
 import os
 import shutil
-import urllib
+import urllib.parse
 
 
 def parse_args():
@@ -45,33 +67,50 @@ def validate_date(date):
         datetime.datetime.strptime(date, "%Y-%m-%d")
         return True
     except ValueError:
+        print(f"Error: Invalid date format. Please use YYYY-MM-DD format")
         return False
 
 
 def validate_imgpath(path):
     if not os.path.exists(path):
+        print(f"Error: File '{path}' does not exist")
         return False
     if not path.lower().endswith(('.png', '.jpeg', '.jpg')):
+        print(f"Error: File must be a PNG, JPEG, or JPG image")
         return False
     return True
 
 
 def get_ext(path):
-    return path[-6:].split(".")[1]
+    return path.split(".")[-1]
 
 
 def validate_url(url):
     try:
         result = urllib.parse.urlparse(url)
         return all([result.scheme, result.netloc])
-    except:
+    except Exception:
+        print(f"Error: Invalid URL format")
         return False
+
+
+def sanitize_for_directory(name):
+    """Convert a name to a directory-safe format"""
+    return '-'.join(name.lower().split())
+
+
+def confirm_creation(content_type, dir_path):
+    """Ask for confirmation before creating content"""
+    print(f"\n{content_type.title()} will be created at: {dir_path}")
+    confirm = input("Continue? (y/n): ").lower().strip()
+    return confirm in ['y', 'yes']
 
 
 def create_experience():
     title = get_input("Title for new experience")
     company = get_input("Name of company")
     companyLink = get_input("Link to company website", check_fn=validate_url)
+    where = get_input("Location (e.g., New York City, NY)", required=False)
     startDate = get_input("Start date yyyy-mm-dd", check_fn=validate_date)
     endDate = get_input("End date yyyy-mm-dd", required=False, check_fn=validate_date)
     languages = get_input("Programming languages used", required=False, inp_type=list)
@@ -80,17 +119,23 @@ def create_experience():
     slug = get_input("Webpage slug")
     
     if endDate == "":
-        dir_name = f"{startDate}-{'-'.join(company.split(' '))}"
+        dir_name = f"{startDate}-{sanitize_for_directory(company)}"
         endDate = "2099-12-31"
     else:
-        dir_name = f"{endDate}-{'-'.join(company.split(' '))}"
-    dir_path = os.path.join("content", "experience", dir_name)
+        dir_name = f"{endDate}-{sanitize_for_directory(company)}"
+    dir_path = os.path.join("src", "content", "experience", dir_name)
+    
+    if not confirm_creation("experience", dir_path):
+        print("Experience creation cancelled")
+        return
     os.makedirs(dir_path, exist_ok=True)
     with open(os.path.join(dir_path, "index.md"), "w+") as out:
         out.write(f"---\n")
         out.write(f"title: {title}\n")
         out.write(f"company: {company}\n")
         out.write(f"companyLink: {companyLink}\n")
+        if where != "":
+            out.write(f"where: {where}\n")
         out.write(f"startDates:\n")
         out.write(f"  - {startDate}\n")
         out.write(f"endDates:\n")
@@ -103,7 +148,7 @@ def create_experience():
             out.write(f"tools:\n")
             for tool in tools:
                 out.write(f"  - {tool}\n")
-        out.write(f"slug: /experience/{slug}/\n")
+        out.write(f"slug: {slug}\n")
         out.write(f"postType: experience\n")
         out.write(f"image: featured.{get_ext(imgPath)}\n")
         out.write(f"---\n")
@@ -112,7 +157,7 @@ def create_experience():
 
 
 def create_project():
-    proj_name = get_input("Project dir name")
+    proj_name = get_input("Project directory name")
     title = get_input("Title for new project")
     startDate = get_input("Start date yyyy-mm-dd", check_fn=validate_date)
     endDate = get_input("End date yyyy-mm-dd", required=False, check_fn=validate_date)
@@ -127,11 +172,15 @@ def create_project():
     slug = get_input("Webpage slug")
     
     if endDate == "":
-        dir_name = f"{startDate}-{'-'.join(proj_name.split(' '))}"
+        dir_name = f"{startDate}-{sanitize_for_directory(proj_name)}"
         endDate = "2099-12-31"
     else:
-        dir_name = f"{endDate}-{'-'.join(proj_name.split(' '))}"
-    dir_path = os.path.join("content", "projects", dir_name)
+        dir_name = f"{endDate}-{sanitize_for_directory(proj_name)}"
+    dir_path = os.path.join("src", "content", "projects", dir_name)
+    
+    if not confirm_creation("project", dir_path):
+        print("Project creation cancelled")
+        return
     os.makedirs(dir_path, exist_ok=True)
     with open(os.path.join(dir_path, "index.md"), "w+") as out:
         out.write(f"---\n")
@@ -160,7 +209,7 @@ def create_project():
             out.write(f"projectLink: {projectLink}\n")
         if demoLink != "":
             out.write(f"demoLink: {demoLink}\n")
-        out.write(f"slug: /projects/{slug}/\n")
+        out.write(f"slug: {slug}\n")
         out.write(f"postType: project\n")
         out.write(f"image: featured.{get_ext(imgPath)}\n")
         out.write(f"---\n")
@@ -169,14 +218,18 @@ def create_project():
 
 
 def create_blog():
-    blog_name = get_input("Blog dir name")
+    blog_name = get_input("Blog directory name")
     title = get_input("Title for new blog")
     date = get_input("Blog date yyyy-mm-dd", check_fn=validate_date)
-    tags = [x.lower() for x in get_input("Tags", inp_type=list)]
+    tags = [x.lower() for x in get_input("Tags", required=False, inp_type=list)]
     slug = get_input("Webpage slug")
     
-    dir_name = f"{date}-{'-'.join(blog_name.split(' '))}"
-    dir_path = os.path.join("content", "blogs", dir_name)
+    dir_name = f"{date}-{sanitize_for_directory(blog_name)}"
+    dir_path = os.path.join("src", "content", "blogs", dir_name)
+    
+    if not confirm_creation("blog", dir_path):
+        print("Blog creation cancelled")
+        return
     os.makedirs(dir_path, exist_ok=True)
     with open(os.path.join(dir_path, "index.md"), "w+") as out:
         out.write(f"---\n")
@@ -186,7 +239,7 @@ def create_blog():
             out.write(f"tags:\n")
             for tag in tags:
                 out.write(f"  - {tag}\n")
-        out.write(f"slug: /blogs/{slug}/\n")
+        out.write(f"slug: {slug}\n")
         out.write(f"postType: blog\n")
         out.write(f"---\n\n")
         out.write(f"<!--excerpt-->\n")
@@ -196,11 +249,11 @@ def create_blog():
 def main():
     args = parse_args()
     if args.experience:
-    	create_experience()
-    if args.project:
-    	create_project()
-    if args.blog:
-    	create_blog()
+        create_experience()
+    elif args.project:
+        create_project()
+    elif args.blog:
+        create_blog()
 
 
 if __name__ == "__main__":
