@@ -1,5 +1,5 @@
 ---
-title: Teaching Assistant for Data Structures course
+title: Undergraduate Teaching Assistant
 company: The University of Texas at Austin
 companyLink: https://www.cs.utexas.edu/
 where: Austin, TX
