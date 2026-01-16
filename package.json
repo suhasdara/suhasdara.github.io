@@ -12,18 +12,18 @@
     "push": "git add . && git commit -m 'Update portfolio' && git push origin main"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.3.3",
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.2",
-    "@astrojs/tailwind": "^5.1.2",
-    "@tailwindcss/typography": "^0.5.16",
-    "astro": "^5.0.0",
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.1",
+    "@astrojs/tailwind": "^5.1.5",
+    "@tailwindcss/typography": "^0.5.19",
+    "astro": "^5.16.9",
     "lucide-astro": "^0.536.0",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.6.3"
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@types/node": "^22.10.2"
+    "@types/node": "^22.19.7"
   }
 }
