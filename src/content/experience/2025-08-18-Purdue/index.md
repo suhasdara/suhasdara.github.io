@@ -14,8 +14,8 @@ postType: experience
 image: featured.png
 ---
 
-For Fall 2025, I am a Graduate Teaching Assistant (GTA) for the ECE20875 Python for
-Data Science course.
+For Fall 2025 and Spring 2026, I am a Graduate Teaching Assistant (GTA) for the
+ECE20875 Python for Data Science course.
 
 My responsibilities include handling the logistics of the course along with fellow
 GTAs, including coordinating the Undergraudate Teaching Assistants (UTAs), handling
