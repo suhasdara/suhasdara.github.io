@@ -49,7 +49,7 @@ free options to run a backend service, I wasn’t satisfied with their support
 for NoSQL databases. They offered <strong>Redis</strong> and <strong>MongoDB</strong>. While Redis was
 suitable for my project, the free limit was far too low, and MongoDB was
 outright unsuitable based on my prior experience.</p>
-<p><img alt="Heroku Redis" loading="lazy" decoding="async" fetchpriority="auto" width="698" height="88" src="/_astro/heroku.DJeFZlRR_Z2mdCee.webp" ></p>
+<p><img alt="Heroku Redis" loading="lazy" decoding="async" fetchpriority="auto" width="698" height="88" src="/_astro/heroku.DJeFZlRR_16Mbpn.webp" ></p>
 <h4 id="amazon-web-services-aws">Amazon Web Services (AWS)</h4>
 <p>I then thought I would take a look at AWS. AWS offered <strong>DynamoDB</strong>, a NoSQL
 database with monthly free limits that were well suited for my purposes.
@@ -58,7 +58,7 @@ for two university projects (<a href="%5Cprojects%5Cdeepfakes">Deepfakes</a> and
 <a href="%5Cprojects%5Ctravel-scares-me">Travel Scares Me</a>) because the documentation is
 very unnerving, and you often have to rely on tutorials. I kept this as a
 backup plan if I could not find anything better.</p>
-<p><img alt="AWS DynamoDB" loading="lazy" decoding="async" fetchpriority="auto" width="1221" height="200" src="/_astro/aws.cq6K__gH_129g0N.webp" ></p>
+<p><img alt="AWS DynamoDB" loading="lazy" decoding="async" fetchpriority="auto" width="1221" height="200" src="/_astro/aws.cq6K__gH_1YnrVY.webp" ></p>
 <h4 id="microsoft-azure">Microsoft Azure</h4>
 <p>Next up, Azure. I had never used or considered Azure before for any of my
 projects. This probably was a bias for me when I looked at Azure <strong>CosmosDB</strong>.
@@ -66,7 +66,7 @@ Similar to Heroku, they offered support for <strong>MongoDB</strong>, but also f
 <strong>Cassandra</strong>, which I had not used before and wasn’t exactly sure was right
 for my use case. With my existing bias, when I noticed that CosmosDB was only
 free for 12 months, I steered away (sorry Azure).</p>
-<p><img alt="Azure CosmosDB" loading="lazy" decoding="async" fetchpriority="auto" width="1010" height="158" src="/_astro/azure.B0cuxunG_ZUwpNx.webp" ></p>
+<p><img alt="Azure CosmosDB" loading="lazy" decoding="async" fetchpriority="auto" width="1010" height="158" src="/_astro/azure.B0cuxunG_18gBEy.webp" ></p>
 <h4 id="google-cloud-platform-gcp">Google Cloud Platform (GCP)</h4>
 <p>Last stop was GCP. I had previously only used GCP for getting access to API
 keys for Google Maps and Google Translate. I had some familiarity with their
@@ -75,7 +75,7 @@ was created to solve problems almost identical to mine. Remember when I said
 my data was all JSONs? Well, straight from Firestore documentation: “You may
 notice that documents look a lot like JSON. In fact, they basically are. …
 in general, you can treat documents as lightweight JSON records.”</p>
-<p><img alt="Cloud Firestore" loading="lazy" decoding="async" fetchpriority="auto" width="806" height="96" src="/_astro/gcp.w6bVWrKv_Z1Ak2rF.webp" ></p>
+<p><img alt="Cloud Firestore" loading="lazy" decoding="async" fetchpriority="auto" width="806" height="96" src="/_astro/gcp.w6bVWrKv_ZWQj7E.webp" ></p>
 <p>However, this time I wanted to be more careful and make sure all my
 requirements can be fulfilled by GCP before moving forward with Firestore. I
 found that Google Compute Engine (GCE) provided a free virtual machine (VM)
@@ -127,7 +127,7 @@ to working on a fresh virtual machine because GCE is an <a href="https://en.wiki
 Service (IaaS)</a>.
 I was not keen on having to deal with disk images and especially network
 routing, so I started looking for alternatives within GCP.</p>
-<p><img alt="Google Compute Engine" loading="lazy" decoding="async" fetchpriority="auto" width="963" height="159" src="/_astro/gcp-gce.CZXJo0qX_ZRHrdP.webp" ></p>
+<p><img alt="Google Compute Engine" loading="lazy" decoding="async" fetchpriority="auto" width="963" height="159" src="/_astro/gcp-gce.CZXJo0qX_1b5Afg.webp" ></p>
 <h4 id="google-app-engine-gae">Google App Engine (GAE)</h4>
 <p>As I scoured the GCP documentation and products, I found GAE. As opposed to
 GCE, GAE is a <a href="https://en.wikipedia.org/wiki/Platform_as_a_service">Platform as a Service
@@ -139,7 +139,7 @@ of B2-instances (512MB RAM, 1.2GHz CPU limit). Historically, F-instances were
 intended for frontend services, and B-instances were intended for backend
 services. Though that is not the case anymore, I decided to follow it that
 way.</p>
-<p><img alt="Google App Engine" loading="lazy" decoding="async" fetchpriority="auto" width="762" height="161" src="/_astro/gcp-gae.BdcvV2fC_PVyLN.webp" ></p>
+<p><img alt="Google App Engine" loading="lazy" decoding="async" fetchpriority="auto" width="762" height="161" src="/_astro/gcp-gae.BdcvV2fC_Z2arwy2.webp" ></p>
 <p>I deployed my frontend and backend services to GAE using an F1-instance and
 a B2-instance respectively. It was as simple as creating two YAML files for
 the configuration of the instances and another YAML file for the routing
@@ -165,7 +165,7 @@ used as a replacement for GAE and has even lesser maintenance overheads (no
 need for even a YAML configuration!) Additionally, the scaling of Cloud Run
 is easier to understand than having to pick from the different instance
 options that GAE offers.</p>
-<p><img alt="Google Cloud Run" loading="lazy" decoding="async" fetchpriority="auto" width="829" height="158" src="/_astro/gcp-run.BqN5i1E7_ZanHrl.webp" ></p>
+<p><img alt="Google Cloud Run" loading="lazy" decoding="async" fetchpriority="auto" width="829" height="158" src="/_astro/gcp-run.BqN5i1E7_1Spk1K.webp" ></p>
 <p>I also learned that GAE uses virtual machines underneath (essentially built
 over GCE) while Cloud Run is built over Google Kubernetes Engine (GKE).
 Considering how much Google is now pushing Kubernetes as a scaling solution,
