@@ -8,10 +8,8 @@ team:
   - Evan Chen
 languages:
   - Python
-  - C++
 tools:
   - PyTorch
-  - SRILM
   - openfst
   - Wandb
 slug: speech-utah-array
